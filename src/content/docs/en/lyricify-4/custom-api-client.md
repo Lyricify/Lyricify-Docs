@@ -3,11 +3,12 @@ title: Custom Spotify API Client Configuration Tutorial
 description: Custom Spotify API Client Configuration Tutorial.
 ---
 
-> ⚠️ **Note:**  
-> Custom API Client requires Lyricify 4 v4.3.48 or later.  
-> Due to Spotify removing a large number of APIs, earlier versions of Lyricify will no longer function properly.  
-> If you have already completed the configuration, please update to v4.3.48 or later before March 9, 2026.  
-> For any questions or feedback, please join the [Telegram group](https://t.me/lyricify).
+:::caution[Note]
+Custom API Client requires Lyricify 4 v4.3.48 or later.  
+Due to Spotify removing a large number of APIs, earlier versions of Lyricify will no longer function properly.  
+If you have already completed the configuration, please update to v4.3.48 or later before March 9, 2026.  
+For any questions or feedback, please join the [Telegram group](https://t.me/lyricify).
+:::
 
 ## Benefits from customising Spotify API Client
 Spotify API won't affect you by returning 429 Error anymore.
@@ -65,4 +66,6 @@ http://127.0.0.1:766/callback
 
 Go to your app’s settings page, and add `http://127.0.0.1:766/callback` under the **Redirect URIs** section. Once updated, your custom API Client should work properly during authorization.
 
-> ⚠️ Note: `127.0.0.1` is the IP address equivalent of `localhost`. Under Spotify's current validation rules, `127.0.0.1` is accepted, while `localhost` is not.
+:::note[Note]
+`127.0.0.1` is the IP address equivalent of `localhost`. Under Spotify's current validation rules, `127.0.0.1` is accepted, while `localhost` is not.
+:::

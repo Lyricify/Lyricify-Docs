@@ -1,7 +1,7 @@
 ---
-import EditLink from 'virtual:starlight/components/EditLink';
 import LastUpdated from 'virtual:starlight/components/LastUpdated';
 import Pagination from 'virtual:starlight/components/Pagination';
+import { Icon } from '@astrojs/starlight/components';
 import LanguagePreferenceScript from './LanguagePreferenceScript.astro';
 
 const currentYear = new Date().getFullYear();
@@ -9,13 +9,28 @@ const locale = Astro.currentLocale ?? Astro.locals.starlightRoute?.lang ?? 'zh-C
 const copyrightText = locale.toLowerCase().startsWith('en')
 	? `Copyright © ${currentYear} WXRIW. All rights reserved.`
 	: `版权所有 © ${currentYear} WXRIW，保留所有权利`;
+const { editUrl, isFallback } = Astro.locals.starlightRoute;
+const showCustomEditLink = Boolean(editUrl && !isFallback);
+const editLinkText = locale.toLowerCase().startsWith('en')
+	? 'Edit this page on GitHub'
+	: '在 GitHub 上编辑此页';
 ---
 
 <footer class="sl-flex">
 	<div class="meta sl-flex">
-		<EditLink />
 		<LastUpdated />
 	</div>
+
+	{
+		showCustomEditLink && (
+			<div class="edit-link-wrap not-content">
+				<a href={editUrl} class="edit-link-card">
+					<Icon name="pencil" size="1rem" />
+					<span>{editLinkText}</span>
+				</a>
+			</div>
+		)
+	}
 
 	<Pagination />
 
@@ -57,6 +72,30 @@ const copyrightText = locale.toLowerCase().startsWith('en')
 		margin-top: 1rem;
 		padding-top: 1.25rem;
 		border-top: 1px solid var(--sl-color-gray-6);
+	}
+
+	.edit-link-wrap {
+		margin-top: 0.25rem;
+	}
+
+	.edit-link-card {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: transparent;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+		font-weight: 400;
+		line-height: 1.4;
+		text-decoration: none;
+	}
+
+	.edit-link-card:hover {
+		color: var(--sl-color-white);
+		text-decoration: none;
 	}
 
 	.brand {

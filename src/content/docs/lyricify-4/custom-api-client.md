@@ -3,11 +3,12 @@ title: 自定义 Spotify API Client 配置教程
 description: 自定义 Spotify API Client 配置教程。
 ---
 
-> ⚠️ **注意：**  
-> 自定义 API Client 需使用 Lyricify 4 v4.3.48 或更高版本。  
-> 由于 Spotify 移除了大量接口，会导致之前的 Lyricify 版本无法正常工作。  
-> 之前已完成配置的用户，需在 2026 年 3 月 9 日前更新到 4.3.48 或更新版本。  
-> 如有任何问题或反馈可加 [QQ 群](https://qm.qq.com/q/QfdlJk8keI)或 [Telegram 群组](https://t.me/lyricify)。
+:::caution[注意]
+自定义 API Client 需使用 Lyricify 4 v4.3.48 或更高版本。  
+由于 Spotify 移除了大量接口，会导致之前的 Lyricify 版本无法正常工作。  
+之前已完成配置的用户，需在 2026 年 3 月 9 日前更新到 4.3.48 或更新版本。  
+如有任何问题或反馈可加 [QQ 群](https://qm.qq.com/q/QfdlJk8keI)或 [Telegram 群组](https://t.me/lyricify)。
+:::
 
 ## 自定义 Spotify API Client 的好处
 不再会因 Spotify API 返回 429 错误而影响 Lyricify 使用体验。
@@ -65,4 +66,6 @@ http://127.0.0.1:766/callback
 
 请进入对应应用的设置页面，并在 `Redirect URI` 中添加 `http://127.0.0.1:766/callback`。完成后即可正常使用自定义 API Client 进行授权。  
 
-> ⚠️ 注意：`127.0.0.1` 是 `localhost` 的等效 IP 地址，在当前 Spotify 的校验机制中被视为有效地址，而 `localhost` 会被拒绝。
+:::note[注意]
+`127.0.0.1` 是 `localhost` 的等效 IP 地址，在当前 Spotify 的校验机制中被视为有效地址，而 `localhost` 会被拒绝。
+:::

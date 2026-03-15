@@ -93,17 +93,12 @@
 }
 
 .sl-markdown-content a:not(:where(.not-content *)) {
-	text-decoration: underline;
-	text-decoration-thickness: 0.08em;
-	text-underline-offset: 0.16em;
-	text-decoration-color: color-mix(in srgb, var(--sl-color-text-accent) 45%, transparent);
-	transition:
-		color 160ms ease,
-		text-decoration-color 160ms ease;
+	text-decoration: none;
+	transition: color 160ms ease;
 }
 
 .sl-markdown-content a:hover:not(:where(.not-content *)) {
-	text-decoration-color: currentColor;
+	text-decoration: none;
 }
 
 .pagination-links a {

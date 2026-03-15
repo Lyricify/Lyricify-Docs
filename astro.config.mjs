@@ -28,6 +28,9 @@ export default defineConfig({
 			},
 			favicon: '/favicon.ico',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/WXRIW/Lyricify-App' }],
+			editLink: {
+				baseUrl: 'https://github.com/Lyricify/Lyricify-Docs/edit/main/',
+			},
 			tableOfContents: false,
 			customCss: ['./src/styles/starlight.css'],
 			components: {

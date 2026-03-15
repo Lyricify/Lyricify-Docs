@@ -30,8 +30,8 @@ description: Lyricify Lite 使用指南。
 | Microsoft Edge | 时间轴较好；曲目信息取决于具体播放内容 | 一般，取决于具体内容 | 默认不启用 |
 
 **注意：**
-1. 请确保相关 app 已更新至最新版本，部分旧版本可能并不支持 SMTC。Spotify 用户建议使用 Lyricify 4，不建议使用 Lyricify Lite，点击查看[具体原因](/lyricify-lite/app-faq/)。
+1. 请确保相关 app 已更新至最新版本，部分旧版本可能并不支持 SMTC。Spotify 用户建议使用 Lyricify 4，不建议使用 Lyricify Lite，点击查看[具体原因](../app-faq/spotify/)。
 2. 对于 SMTC 无时间轴信息的 app，Lyricify Lite 将使用内置定时器更新歌词进度，所以在手动修改播放进度后，Lyricify Lite 无法更新播放进度，歌词会发生前后错位。
 3. 曲目匹配“完美”指 Lyricify Lite 可以完美匹配当前播放的曲目。其它匹配程度指 Lyricify Lite 需要通过对曲目信息进行搜索来匹配对应曲目，所以匹配可能不精准或匹配不到。
 4. 所有接入 SMTC 的应用均支持 Lyricify Lite，未在上表中列出的 app 并不代表不支持 Lyricify Lite。
-5. <span id="ref5">Apple Music 的时间轴传递不稳定，借助 Lyricify 智能引擎，Lyricify Lite 在 Microsoft Store 商店购买版中添加了“Apple Music 时间轴稳定器”功能，且默认开启。具体可参考[常见问题](/lyricify-lite/app-faq/)。</span>
+5. <span id="ref5">Apple Music 的时间轴传递不稳定，借助 Lyricify 智能引擎，Lyricify Lite 在 Microsoft Store 商店购买版中添加了“Apple Music 时间轴稳定器”功能，且默认开启。具体可参考[常见问题](../app-faq/apple-music/)。</span>
