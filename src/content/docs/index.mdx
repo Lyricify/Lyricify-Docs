@@ -5,28 +5,29 @@ template: splash
 hero:
   tagline: Lyricify 系列产品文档站
   actions:
-    - text: 下载
-      link: /download/
-      icon: download
-    - text: 选择合适的版本
-      link: /choose-the-right-version/
+    - text: Lyricify 4 文档
+      link: ./lyricify-4/guide/
       icon: right-arrow
-    - text: GitHub 仓库
-      link: https://github.com/WXRIW/Lyricify-App
-      icon: external
-      variant: minimal
+    - text: Lyricify Lite 文档
+      link: ./lyricify-lite/guide/
+      icon: right-arrow
+    - text: Lyricify Mobile 文档
+      link: ./lyricify-mobile/guide/
+      icon: right-arrow
 ---
 
 import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
 
-### 产品文档
+### 获取软件
 
 <div
   style="display:flex;flex-wrap:wrap;gap:.875rem;justify-content:flex-start;margin:.35rem 0 2rem;"
 >
-  <LinkButton href="/lyricify-4/guide/" icon="right-arrow">Lyricify 4 文档</LinkButton>
-  <LinkButton href="/lyricify-mobile/guide/" icon="right-arrow">Lyricify Mobile 文档</LinkButton>
-  <LinkButton href="/lyricify-lite/guide/" icon="right-arrow">Lyricify Lite 文档</LinkButton>
+  <LinkButton href="./download/" icon="download">下载</LinkButton>
+  <LinkButton href="./choose-the-right-version/" icon="right-arrow">选择合适的版本</LinkButton>
+  <LinkButton href="https://github.com/WXRIW/Lyricify-App" icon="external" variant="minimal">
+    GitHub 仓库
+  </LinkButton>
 </div>
 
 ## 产品矩阵
@@ -35,19 +36,13 @@ import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
 	<Card title="Lyricify 4" icon="open-book">
 		面向 Spotify 的完整桌面歌词与增强功能方案，适合 Windows 用户。
 	</Card>
-	<Card title="Lyricify Mobile" icon="mobile">
-		面向 Android、iPhone、iPad、macOS 等平台的移动端歌词体验。
-	</Card>
 	<Card title="Lyricify Lite" icon="star">
 		面向接入 SMTC 的 Windows 播放器，提供桌面歌词与灵动词岛等功能。
 	</Card>
+	<Card title="Lyricify Mobile" icon="phone">
+		面向 Android、iPhone、iPad、macOS 等平台的移动端歌词体验。
+	</Card>
 </CardGrid>
-
-## 从哪里开始
-
-- 首次使用 Lyricify 4：从[Lyricify 4 使用指南](/lyricify-4/guide/)开始。
-- 需要在 iPhone 或 iPad 上安装：查看[Lyricify Mobile 使用指南](/lyricify-mobile/guide/)中的安装部分。
-- 频繁遇到 `429`：查看对应产品文档中的 `自定义 Spotify API Client 配置教程` 页面。
 
 ## 说明
 

@@ -1,9 +1,7 @@
 ---
-title: 附录
-description: Lyricify 4 附录。
+title: Lyricify 名词
+description: Lyricify 4 名词说明。
 ---
-
-## Lyricify 名词
 
 请规范使用 Lyricify 正确的名称或专有名词来描述反馈、提问。自行造词会带来很多麻烦和困惑。  
 

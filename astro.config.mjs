@@ -116,7 +116,7 @@ export default defineConfig({
 								'lyricify-4/special-issues/server-blocked',
 							],
 						},
-						'lyricify-4/appendix',
+						'lyricify-4/terms',
 						'lyricify-4/account',
 					],
 				},
@@ -128,9 +128,40 @@ export default defineConfig({
 					items: [
 						'lyricify-lite/guide',
 						'lyricify-lite/basic',
-						'lyricify-lite/faq',
-						'lyricify-lite/app-faq',
-						'lyricify-lite/appendix',
+						{
+							label: '常见问题',
+							translations: {
+								en: 'FAQ',
+							},
+							items: [
+								'lyricify-lite/faq',
+								'lyricify-lite/faq/store-vs-github',
+								'lyricify-lite/faq/self-contained',
+								'lyricify-lite/faq/cannot-detect-player',
+								'lyricify-lite/faq/store-shortcut',
+								'lyricify-lite/faq/desktop-lyrics-disappear',
+								'lyricify-lite/faq/desktop-lyrics-font-size',
+								'lyricify-lite/faq/obs-capture',
+								'lyricify-lite/faq/custom-fonts',
+								'lyricify-lite/faq/auto-update',
+								'lyricify-lite/faq/config-migration',
+							],
+						},
+						{
+							label: '常见问题（逐应用）',
+							translations: {
+								en: 'App FAQ',
+							},
+							items: [
+								'lyricify-lite/app-faq/spotify',
+								'lyricify-lite/app-faq/qq-music',
+								'lyricify-lite/app-faq/netease-cloud-music',
+								'lyricify-lite/app-faq/kugou-music',
+								'lyricify-lite/app-faq/potplayer',
+								'lyricify-lite/app-faq/apple-music',
+							],
+						},
+						'lyricify-lite/terms',
 					],
 				},
 				{

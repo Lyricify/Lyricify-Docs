@@ -28,7 +28,7 @@ description: Lyricify 4 使用指南。
 - [无法导入歌词](/lyricify-4/faq/cannot-upload-lyrics/)
 - [其它常见问题](/lyricify-4/faq/)
 
-**注意：** 如需反馈或提问，对于 Lyricify 功能，请使用[官方认定的正确的名称](/lyricify-4/appendix/)来描述。  
+**注意：** 如需反馈或提问，对于 Lyricify 功能，请使用[官方认定的正确的名称](/lyricify-4/terms/)来描述。  
 
 Lyricify 4 是免费软件，仅部分个性化设置为商店版独享。如果你觉得 Lyricify 4 做的不错，则可以通过以下渠道支持：
 - 在软件中，菜单-关于页里有打赏方式

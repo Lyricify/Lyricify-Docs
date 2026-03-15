@@ -1,0 +1,49 @@
+---
+title: Lyricify Docs
+description: Documentation for the Lyricify product lineup.
+template: splash
+hero:
+  tagline: Documentation for the Lyricify product lineup
+  actions:
+    - text: Lyricify 4 Docs
+      link: ./lyricify-4/guide/
+      icon: right-arrow
+    - text: Lyricify Lite Docs
+      link: ./lyricify-lite/guide/
+      icon: right-arrow
+    - text: Lyricify Mobile Docs
+      link: ./lyricify-mobile/guide/
+      icon: right-arrow
+---
+
+import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+### Get the Apps
+
+<div
+  style="display:flex;flex-wrap:wrap;gap:.875rem;justify-content:flex-start;margin:.35rem 0 2rem;"
+>
+  <LinkButton href="./download/" icon="download">Download</LinkButton>
+  <LinkButton href="./choose-the-right-version/" icon="right-arrow">Choose the Right Version</LinkButton>
+  <LinkButton href="https://github.com/WXRIW/Lyricify-App" icon="external" variant="minimal">
+    GitHub Repository
+  </LinkButton>
+</div>
+
+## Product Lineup
+
+<CardGrid stagger>
+	<Card title="Lyricify 4" icon="open-book">
+		A full desktop lyrics and enhancement solution for Spotify, designed for Windows users.
+	</Card>
+	<Card title="Lyricify Lite" icon="star">
+		Desktop lyrics and Dynamic Island style lyrics for Windows players that support SMTC.
+	</Card>
+	<Card title="Lyricify Mobile" icon="phone">
+		A mobile lyrics experience for Android, iPhone, iPad, macOS, and more.
+	</Card>
+</CardGrid>
+
+## Notes
+
+The Lyricify 4, Lyricify Lite, and Lyricify Mobile user guides on this site, along with the iOS installation guide and custom API client guide, were migrated by splitting the original documents into separate pages with only minimal structural and link adjustments.

@@ -2,6 +2,7 @@
 import EditLink from 'virtual:starlight/components/EditLink';
 import LastUpdated from 'virtual:starlight/components/LastUpdated';
 import Pagination from 'virtual:starlight/components/Pagination';
+import LanguagePreferenceScript from './LanguagePreferenceScript.astro';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -23,6 +24,8 @@ const currentYear = new Date().getFullYear();
 			</div>
 		</div>
 	</div>
+
+	<LanguagePreferenceScript />
 </footer>
 
 <style>

@@ -1,0 +1,36 @@
+<script is:inline>
+	(() => {
+		const storageKey = 'lyricify-docs-locale';
+
+		const getPreferredLocale = () => {
+			const saved = window.localStorage.getItem(storageKey);
+			if (saved === 'en' || saved === 'zh-CN') return saved;
+
+			const languages = navigator.languages && navigator.languages.length > 0
+				? navigator.languages
+				: [navigator.language];
+			return languages.some((lang) => lang.toLowerCase().startsWith('zh')) ? 'zh-CN' : 'en';
+		};
+
+		const isRootPath = () => {
+			const { pathname } = window.location;
+			return pathname === '/' || pathname === '/index.html';
+		};
+
+		const preferredLocale = getPreferredLocale();
+		if (isRootPath() && preferredLocale === 'en') {
+			window.location.replace('/en/');
+			return;
+		}
+
+		const select = document.querySelector('starlight-lang-select select');
+		if (select instanceof HTMLSelectElement) {
+			select.addEventListener('change', (event) => {
+				const target = event.currentTarget;
+				if (!(target instanceof HTMLSelectElement)) return;
+				const locale = target.value.startsWith('/en/') || target.value === '/en/' ? 'en' : 'zh-CN';
+				window.localStorage.setItem(storageKey, locale);
+			});
+		}
+	})();
+</script>
