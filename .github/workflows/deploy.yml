@@ -40,3 +40,25 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy_server:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: ./dist
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DOCS_SERVER_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p ${{ secrets.DOCS_SERVER_PORT }} ${{ secrets.DOCS_SERVER_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Sync dist to server
+        run: |
+          rsync -avz --delete -e "ssh -p ${{ secrets.DOCS_SERVER_PORT }}" ./dist/ \
+            ${{ secrets.DOCS_SERVER_USER }}@${{ secrets.DOCS_SERVER_HOST }}:${{ secrets.DOCS_SERVER_PATH }}/
