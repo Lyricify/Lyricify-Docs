@@ -5,6 +5,10 @@ import Pagination from 'virtual:starlight/components/Pagination';
 import LanguagePreferenceScript from './LanguagePreferenceScript.astro';
 
 const currentYear = new Date().getFullYear();
+const locale = Astro.currentLocale ?? Astro.locals.starlightRoute?.lang ?? 'zh-CN';
+const copyrightText = locale.toLowerCase().startsWith('en')
+	? `Copyright © ${currentYear} WXRIW. All rights reserved.`
+	: `版权所有 © ${currentYear} WXRIW，保留所有权利`;
 ---
 
 <footer class="sl-flex">
@@ -20,7 +24,7 @@ const currentYear = new Date().getFullYear();
 			<img class="logo" src="/Lyricify-icon.png" alt="Lyricify Icon" />
 			<div class="text">
 				<p class="name">Lyricify</p>
-				<p class="copyright">版权所有 © {currentYear} WXRIW，保留所有权利</p>
+				<p class="copyright">{copyrightText}</p>
 			</div>
 		</div>
 	</div>
