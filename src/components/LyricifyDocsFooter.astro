@@ -9,8 +9,9 @@ const locale = Astro.currentLocale ?? Astro.locals.starlightRoute?.lang ?? 'zh-C
 const copyrightText = locale.toLowerCase().startsWith('en')
 	? `Copyright © ${currentYear} WXRIW. All rights reserved.`
 	: `版权所有 © ${currentYear} WXRIW，保留所有权利`;
-const { editUrl, isFallback } = Astro.locals.starlightRoute;
-const showCustomEditLink = Boolean(editUrl && !isFallback);
+const { editUrl, isFallback, entry } = Astro.locals.starlightRoute;
+const isSplashPage = entry.data.template === 'splash';
+const showCustomEditLink = Boolean(editUrl && !isFallback && !isSplashPage);
 const editLinkText = locale.toLowerCase().startsWith('en')
 	? 'Edit this page on GitHub'
 	: '在 GitHub 上编辑此页';
