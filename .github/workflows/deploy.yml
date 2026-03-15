@@ -30,6 +30,12 @@ jobs:
         # env:
           # PUBLIC_POKEAPI: 'https://pokeapi.co/api/v2' # Use single quotation marks for the variable value. (optional)
 
+      - name: Upload dist for server deploy
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: ./dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
