@@ -150,15 +150,15 @@ export default defineConfig({
 						{
 							label: '常见问题（逐应用）',
 							translations: {
-								en: 'App FAQ',
+								en: 'FAQ (by App)',
 							},
 							items: [
 								'lyricify-lite/app-faq/spotify',
+								'lyricify-lite/app-faq/apple-music',
 								'lyricify-lite/app-faq/qq-music',
 								'lyricify-lite/app-faq/netease-cloud-music',
 								'lyricify-lite/app-faq/kugou-music',
 								'lyricify-lite/app-faq/potplayer',
-								'lyricify-lite/app-faq/apple-music',
 							],
 						},
 						'lyricify-lite/terms',
