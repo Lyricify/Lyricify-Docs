@@ -1,0 +1,17 @@
+---
+interface Props {
+	href: string;
+	alt: string;
+}
+
+const { href, alt } = Astro.props;
+const locale = Astro.currentLocale ?? Astro.locals.starlightRoute?.lang ?? 'zh-CN';
+const languageCode = locale.toLowerCase().startsWith('en') ? 'en-us' : 'zh-cn';
+const badgeSrc = `https://get.microsoft.com/images/${languageCode}%20dark.svg`;
+---
+
+<p class="download-store-badge">
+	<a href={href}>
+		<img src={badgeSrc} alt={alt} />
+	</a>
+</p>

@@ -1,0 +1,94 @@
+---
+import EditLink from 'virtual:starlight/components/EditLink';
+import LastUpdated from 'virtual:starlight/components/LastUpdated';
+import Pagination from 'virtual:starlight/components/Pagination';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="sl-flex">
+	<div class="meta sl-flex">
+		<EditLink />
+		<LastUpdated />
+	</div>
+
+	<Pagination />
+
+	<div class="lyricify-footer not-content">
+		<div class="brand">
+			<img class="logo" src="/Lyricify-icon.png" alt="Lyricify Icon" />
+			<div class="text">
+				<p class="name">Lyricify</p>
+				<p class="copyright">版权所有 © {currentYear} WXRIW，保留所有权利</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style>
+	@layer starlight.core {
+		footer {
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
+		.meta {
+			gap: 0.75rem 3rem;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin-top: 3rem;
+			font-size: var(--sl-text-sm);
+			color: var(--sl-color-gray-3);
+		}
+
+		.meta > :global(p:only-child) {
+			margin-inline-start: auto;
+		}
+	}
+
+	.lyricify-footer {
+		margin-top: 1rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--sl-color-gray-6);
+	}
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.875rem;
+	}
+
+	.logo {
+		width: 2.75rem;
+		height: 2.75rem;
+		flex: 0 0 auto;
+	}
+
+	.text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.125rem;
+	}
+
+	.name,
+	.copyright {
+		margin: 0;
+	}
+
+	.name {
+		font-size: var(--sl-text-base);
+		font-weight: 700;
+		color: var(--sl-color-white);
+	}
+
+	.copyright {
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+
+	@media (max-width: 40rem) {
+		.brand {
+			align-items: flex-start;
+		}
+	}
+</style>

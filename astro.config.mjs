@@ -6,19 +6,150 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: {
+				'zh-CN': 'Lyricify Docs',
+				en: 'Lyricify Docs',
+			},
+			locales: {
+				root: {
+					label: '简体中文',
+					lang: 'zh-CN',
+				},
+				en: {
+					label: 'English',
+					lang: 'en',
+				},
+			},
+			defaultLocale: 'root',
+			logo: {
+				src: './src/assets/Lyricify-icon.png',
+				alt: 'Lyricify Icon',
+			},
+			favicon: '/favicon.ico',
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/WXRIW/Lyricify-App' }],
+			tableOfContents: false,
+			customCss: ['./src/styles/starlight.css'],
+			components: {
+				Footer: './src/components/LyricifyDocsFooter.astro',
+			},
 			sidebar: [
 				{
-					label: 'Guides',
+					label: '下载',
+					translations: {
+						en: 'Download',
+					},
+					slug: 'download',
+				},
+				{
+					label: '选择合适的版本',
+					translations: {
+						en: 'Choose the Right Version',
+					},
+					slug: 'choose-the-right-version',
+				},
+				{
+					label: 'Lyricify 4',
+					translations: {
+						en: 'Lyricify 4',
+					},
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						'lyricify-4/guide',
+						'lyricify-4/basic',
+						'lyricify-4/advanced',
+						'lyricify-4/custom-api-client',
+						{
+							label: '常见问题',
+							translations: {
+								en: 'FAQ',
+							},
+							items: [
+								'lyricify-4/faq',
+								'lyricify-4/faq/store-vs-github',
+								'lyricify-4/faq/self-contained',
+								'lyricify-4/faq/play-button-no-response',
+								'lyricify-4/faq/no-lyrics-from-server',
+								'lyricify-4/faq/auth-no-response',
+								'lyricify-4/faq/startup-error',
+								'lyricify-4/faq/startup-message-box',
+								'lyricify-4/faq/cannot-upload-lyrics',
+								'lyricify-4/faq/account-restricted',
+								'lyricify-4/faq/open-spotify-missing',
+								'lyricify-4/faq/floating-lyrics-disappear',
+								'lyricify-4/faq/desktop-font-size',
+								'lyricify-4/faq/obs-capture',
+								'lyricify-4/faq/buggy-apple',
+								'lyricify-4/faq/song-switch-lag',
+								'lyricify-4/faq/error-429',
+								'lyricify-4/faq/long-429',
+								'lyricify-4/faq/no-current-track',
+								'lyricify-4/faq/media-session-not-connected',
+								'lyricify-4/faq/no-album-art',
+								'lyricify-4/faq/stutter-on-track-change',
+								'lyricify-4/faq/no-lyrics-on-other-views',
+								'lyricify-4/faq/auto-update',
+								'lyricify-4/faq/config-migration',
+								'lyricify-4/faq/inaccurate-timeline',
+								'lyricify-4/faq/apple-music-performance',
+							],
+						},
+						{
+							label: '已知问题',
+							translations: {
+								en: 'Known Issues',
+							},
+							items: [
+								'lyricify-4/known-issues',
+								'lyricify-4/known-issues/apple-music-performance',
+								'lyricify-4/known-issues/render-thread-crash',
+							],
+						},
+						{
+							label: '特殊问题',
+							translations: {
+								en: 'Special Cases',
+							},
+							items: [
+								'lyricify-4/special-issues',
+								'lyricify-4/special-issues/mobile-auth',
+								'lyricify-4/special-issues/support-other-apps',
+								'lyricify-4/special-issues/server-blocked',
+							],
+						},
+						'lyricify-4/appendix',
+						'lyricify-4/account',
 					],
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Lyricify Lite',
+					translations: {
+						en: 'Lyricify Lite',
+					},
+					items: [
+						'lyricify-lite/guide',
+						'lyricify-lite/basic',
+						'lyricify-lite/faq',
+						'lyricify-lite/app-faq',
+						'lyricify-lite/appendix',
+					],
+				},
+				{
+					label: 'Lyricify Mobile',
+					translations: {
+						en: 'Lyricify Mobile',
+					},
+					items: [
+						'lyricify-mobile/guide',
+						'lyricify-mobile/ios-ipa-guide',
+						'lyricify-mobile/custom-api-client',
+						'lyricify-mobile/troubleshooting',
+					],
+				},
+				{
+					label: '歌词格式与制作',
+					translations: {
+						en: 'Lyrics Formats & Authoring',
+					},
+					items: ['lyrics/guide'],
 				},
 			],
 		}),
