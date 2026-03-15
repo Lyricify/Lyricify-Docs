@@ -8,27 +8,27 @@ description: Lyricify 4 使用指南。
 如果您是 Lyricify 4 的老用户，遇到了一些问题，则可以在下方查找是否有您想知道的问题。  
 
 ### 功能
-- [Microsoft Store 版本与 GitHub 版本有什么区别](/lyricify-4/faq/store-vs-github/)
-- [Spotify Premium 在 Lyricify 中的独占功能](/lyricify-4/basic/#spotify-premium-独占功能)
-- [自定义 API Client](/lyricify-4/custom-api-client/)
-- [歌词导入](/lyricify-4/basic/#歌词标记及导入)
-- [歌词管理及高级操作](/lyricify-4/advanced/#曲目管理)
-- [全局快捷键](/lyricify-4/basic/#全局快捷键)
-- [曲库可用性查询](/lyricify-4/advanced/#可用性查询)
-- [开机自启动](/lyricify-4/advanced/#开机自启动)
-- [自定义配置](/lyricify-4/advanced/#自定义配置)
+- [Microsoft Store 版本与 GitHub 版本有什么区别](../faq/store-vs-github/)
+- [Spotify Premium 在 Lyricify 中的独占功能](../basic/#spotify-premium-独占功能)
+- [自定义 API Client](../custom-api-client/)
+- [歌词导入](../basic/#歌词标记及导入)
+- [歌词管理及高级操作](../advanced/#曲目管理)
+- [全局快捷键](../basic/#全局快捷键)
+- [曲库可用性查询](../advanced/#可用性查询)
+- [开机自启动](../advanced/#开机自启动)
+- [自定义配置](../advanced/#自定义配置)
 
 ### 常见问题
-- [启动时提示错误](/lyricify-4/faq/startup-error/)
-- [切歌后反应迟钝](/lyricify-4/faq/song-switch-lag/)
-- [过多请求 429 错误](/lyricify-4/faq/error-429/)
-- [Apple Music 歌词界面卡顿](/lyricify-4/faq/apple-music-performance/)
-- [专辑图片不显示](/lyricify-4/faq/no-album-art/)
-- [Lyricify 不显示歌词](/lyricify-4/faq/no-current-track/)
-- [无法导入歌词](/lyricify-4/faq/cannot-upload-lyrics/)
-- [其它常见问题](/lyricify-4/faq/)
+- [启动时提示错误](../faq/startup-error/)
+- [切歌后反应迟钝](../faq/song-switch-lag/)
+- [过多请求 429 错误](../faq/error-429/)
+- [Apple Music 歌词界面卡顿](../faq/apple-music-performance/)
+- [专辑图片不显示](../faq/no-album-art/)
+- [Lyricify 不显示歌词](../faq/no-current-track/)
+- [无法导入歌词](../faq/cannot-upload-lyrics/)
+- [其它常见问题](../faq/)
 
-**注意：** 如需反馈或提问，对于 Lyricify 功能，请使用[官方认定的正确的名称](/lyricify-4/terms/)来描述。  
+**注意：** 如需反馈或提问，对于 Lyricify 功能，请使用[官方认定的正确的名称](../terms/)来描述。  
 
 Lyricify 4 是免费软件，仅部分个性化设置为商店版独享。如果你觉得 Lyricify 4 做的不错，则可以通过以下渠道支持：
 - 在软件中，菜单-关于页里有打赏方式

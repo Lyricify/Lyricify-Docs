@@ -12,7 +12,7 @@ description: Lyricify Mobile 常见问题。
 科学上网。
 
 ## 登录时提示 INVALID_CLIENT: Invalid Redirect URI
-检查你的 Redirect URI 是否正确填写。确保[教程](/lyricify-mobile/custom-api-client/)中的两条 Redirect URI 均已正确填写。  
+检查你的 Redirect URI 是否正确填写。确保[教程](../custom-api-client/)中的两条 Redirect URI 均已正确填写。  
 请确保你使用的是 1.5.0 或更新版本的 Lyricify Mobile，且使用的是 `跳转浏览器登录`。由于 Spotify 的调整，`内嵌网页登录` 仅在 1.5.1 或更新版本的 Lyricify Mobile 上支持。
 
 ## 在 Mac 设备上完成登录
@@ -48,7 +48,7 @@ Lyricify Mobile for macOS 仅支持 `内嵌网页登录`，如果你在直接登
 ### 导致原因
 Spotify 返回了 `429 请求过多` 错误，不是 Lyricify 的锅。
 ### 解决方案
-配置自定义 API Client，可参考[这个教程](/lyricify-mobile/custom-api-client/)。  
+配置自定义 API Client，可参考[这个教程](../custom-api-client/)。  
 或者等待，等到 Spotify 不返回 429 了，就好了。  
 
 ## 超长 429 错误
@@ -80,7 +80,7 @@ Spotify 没有上传当前的播放信息。这是网络原因，也可能是 Sp
 ### 解决方案
 在 Lyricify 4 中自行导入即可。  
 *注：Lyricify 4 是电脑软件。*  
-[具体操作方法](/lyricify-4/basic/)
+[具体操作方法](../../lyricify-4/basic/)
 
 ## 提示没有找到歌词
 没搜到歌词。  
@@ -90,7 +90,7 @@ Spotify 没有上传当前的播放信息。这是网络原因，也可能是 Sp
 ### 解决方案
 在 Lyricify 4 中自行导入即可。  
 *注：Lyricify 4 是电脑软件。*  
-[具体操作方法](/lyricify-4/basic/)
+[具体操作方法](../../lyricify-4/basic/)
 
 ## 电脑上有歌词，手机上没有/错误
 ### 解决方案

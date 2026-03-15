@@ -3,7 +3,7 @@ title: 常见问题
 description: Lyricify Lite 常见问题。
 ---
 
-**注意：** 如需反馈或提问，对于 Lyricify 功能，请使用[官方认定的正确的名称](/lyricify-lite/terms/)来描述。
+**注意：** 如需反馈或提问，对于 Lyricify 功能，请使用[官方认定的正确的名称](../terms/)来描述。
 
 ## 问题列表
 

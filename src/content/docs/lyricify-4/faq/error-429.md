@@ -8,7 +8,7 @@ description: 总是提示出现 429 错误。
 ### 导致原因
 Spotify 返回了 `429 请求过多` 错误，不是 Lyricify 的锅。  
 ### 解决方案
-配置自定义 API Client，可参考[这个教程](/lyricify-4/custom-api-client/)。  
+配置自定义 API Client，可参考[这个教程](../../custom-api-client/)。  
 如果您不想配置，则可以选择等待，等到 Spotify 不返回 429 了，就好了。  
 如果是点歌操作，建议在 Spotify 客户端中进行。  
 *注：429 错误的高峰时期为每天的下午和晚上，早上出现该错误的频率会小一些，等待时长会短一些。*
