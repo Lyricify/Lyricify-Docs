@@ -35,6 +35,8 @@ export default defineConfig({
 			customCss: ['./src/styles/starlight.css'],
 			components: {
 				Footer: './src/components/LyricifyDocsFooter.astro',
+				PageTitle: './src/components/LyricifyPageTitle.astro',
+				FallbackContentNotice: './src/components/EmptyFallbackContentNotice.astro',
 			},
 			sidebar: [
 				{

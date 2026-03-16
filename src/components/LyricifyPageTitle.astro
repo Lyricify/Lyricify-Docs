@@ -1,0 +1,67 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+
+const { starlightRoute, t } = Astro.locals;
+const showFallbackNotice = starlightRoute.isFallback && starlightRoute.lang.toLowerCase().startsWith('en');
+const PAGE_TITLE_ID = '_top';
+---
+
+{
+	showFallbackNotice && (
+		<p class="fallback-banner" role="note">
+			<Icon name="warning" size="1.25rem" />
+			<span>{t('i18n.untranslatedContent')}</span>
+		</p>
+	)
+}
+
+<h1 id={PAGE_TITLE_ID}>{starlightRoute.entry.data.title}</h1>
+
+<style>
+	@layer starlight.core {
+		.fallback-banner {
+			--_main-width: calc(100vw - var(--sl-content-inline-start, 0rem));
+			--_content-width: min(
+				var(--sl-content-width),
+				calc(var(--_main-width) - (2 * var(--sl-content-pad-x)))
+			);
+			--_content-offset: calc((var(--_main-width) - var(--_content-width)) / 2);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-sizing: border-box;
+			gap: 0.75rem;
+			width: var(--_main-width);
+			margin: -1.5rem 0 1rem;
+			margin-inline-start: calc(-1 * var(--_content-offset));
+			padding: 0.875rem max(var(--sl-content-pad-x), 1.125rem);
+			padding-inline-start: max(var(--sl-content-pad-x), var(--_content-offset));
+			padding-inline-end: max(var(--sl-content-pad-x), var(--_content-offset));
+			border: 0;
+			background: #7a4a11;
+			color: var(--sl-color-white);
+			font-size: var(--sl-text-base);
+			font-weight: 600;
+			line-height: 1.5;
+			text-align: center;
+		}
+
+		.fallback-banner :global(svg) {
+			flex: 0 0 auto;
+			color: currentColor;
+		}
+
+		h1 {
+			margin-top: 1rem;
+			font-size: var(--sl-text-h1);
+			line-height: var(--sl-line-height-headings);
+			font-weight: 600;
+			color: var(--sl-color-white);
+		}
+
+		:root[data-theme='light'] .fallback-banner {
+			background: color-mix(in srgb, var(--sl-color-orange) 86%, white);
+			color: var(--sl-color-gray-1);
+		}
+	}
+</style>
