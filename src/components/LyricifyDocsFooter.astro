@@ -46,59 +46,6 @@ const editLinkText = locale.toLowerCase().startsWith('en')
 	</div>
 
 	<LanguagePreferenceScript />
-	<script is:inline>
-		(() => {
-			const syncCurrentSidebarItemIntoView = () => {
-				const mediaQuery = window.matchMedia('(min-width: 50rem)');
-				if (!mediaQuery.matches) return;
-
-				const sidebarScroller = document.getElementById('starlight__sidebar');
-				const currentLink = sidebarScroller?.querySelector("a[aria-current='page']");
-				if (!(sidebarScroller instanceof HTMLElement) || !(currentLink instanceof HTMLElement)) return;
-
-				const scrollerRect = sidebarScroller.getBoundingClientRect();
-				const linkRect = currentLink.getBoundingClientRect();
-				const lineHeight = parseFloat(window.getComputedStyle(currentLink).lineHeight) || 24;
-				const threshold = lineHeight * 2;
-				const idealOffset = sidebarScroller.clientHeight * 0.25;
-				const maxScrollTop = Math.max(0, sidebarScroller.scrollHeight - sidebarScroller.clientHeight);
-				const spaceAbove = linkRect.top - scrollerRect.top;
-				const spaceBelow = scrollerRect.bottom - linkRect.bottom;
-				const isFullyAboveViewport = linkRect.bottom <= scrollerRect.top;
-				const isFullyBelowViewport = linkRect.top >= scrollerRect.bottom;
-				const isFullyOutOfView = isFullyAboveViewport || isFullyBelowViewport;
-
-				let nextScrollTop = null;
-				if (isFullyOutOfView) {
-					const targetScrollTop =
-						sidebarScroller.scrollTop + (linkRect.top - scrollerRect.top) - idealOffset;
-					nextScrollTop = Math.min(Math.max(0, targetScrollTop), maxScrollTop);
-				} else if (spaceAbove < threshold) {
-					nextScrollTop = Math.max(0, sidebarScroller.scrollTop - (threshold - spaceAbove));
-				} else if (spaceBelow < threshold) {
-					nextScrollTop = Math.min(
-						maxScrollTop,
-						sidebarScroller.scrollTop + (threshold - spaceBelow)
-					);
-				}
-
-				if (typeof nextScrollTop === 'number' && Math.abs(sidebarScroller.scrollTop - nextScrollTop) > 2) {
-					sidebarScroller.scrollTo({
-						top: nextScrollTop,
-						behavior: 'smooth',
-					});
-				}
-			};
-
-			const run = () => window.requestAnimationFrame(syncCurrentSidebarItemIntoView);
-			document.addEventListener('astro:page-load', run);
-			if (document.readyState === 'loading') {
-				document.addEventListener('DOMContentLoaded', run, { once: true });
-			} else {
-				run();
-			}
-		})();
-	</script>
 </footer>
 
 <style>

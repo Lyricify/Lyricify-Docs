@@ -1,0 +1,152 @@
+---
+function recursivelyBuildSidebarIdentity(sidebar) {
+	return sidebar
+		.flatMap((entry) =>
+			entry.type === 'group'
+				? entry.label + recursivelyBuildSidebarIdentity(entry.entries)
+				: entry.label + entry.href
+		)
+		.join('');
+}
+
+function getSidebarHash(sidebar) {
+	let hash = 0;
+	const sidebarIdentity = recursivelyBuildSidebarIdentity(sidebar);
+	for (let i = 0; i < sidebarIdentity.length; i++) {
+		const char = sidebarIdentity.charCodeAt(i);
+		hash = (hash << 5) - hash + char;
+	}
+	return (hash >>> 0).toString(36).padStart(7, '0');
+}
+
+const hash = getSidebarHash(Astro.locals.starlightRoute.sidebar);
+
+declare global {
+	interface Window {
+		_starlightScrollRestore?: number;
+	}
+}
+---
+
+<sl-sidebar-state-persist data-hash={hash}>
+	<script is:inline aria-hidden="true">
+		(() => {
+			try {
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				if (!customElements.get('sl-sidebar-restore')) {
+					customElements.define(
+						'sl-sidebar-restore',
+						class SidebarRestore extends HTMLElement {
+							connectedCallback() {
+								try {
+									const idx = parseInt(this.dataset.index || '');
+									const details = this.closest('details');
+									if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+								} catch {}
+							}
+						}
+					);
+				}
+			} catch {}
+		})();
+	</script>
+
+	<slot />
+
+	<script is:inline aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			const menuButton = document.querySelector('starlight-menu-button');
+			if (!(scroller instanceof HTMLElement)) return;
+
+			const getStoredScroll = () => {
+				try {
+					const target = document.querySelector('sl-sidebar-state-persist');
+					const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+					if (!(target instanceof HTMLElement) || !state || target.dataset.hash !== state.hash) return null;
+					return typeof state.scroll === 'number' ? state.scroll : null;
+				} catch {
+					return null;
+				}
+			};
+
+			const restoreScroll = () => {
+				const scrollRestore =
+					typeof window._starlightScrollRestore === 'number'
+						? window._starlightScrollRestore
+						: getStoredScroll();
+				if (typeof scrollRestore !== 'number') return;
+				scroller.scrollTop = scrollRestore;
+			};
+
+			const syncCurrentSidebarItemIntoView = () => {
+				const currentLink = scroller.querySelector("a[aria-current='page']");
+				if (!(currentLink instanceof HTMLElement)) return;
+
+				const scrollerRect = scroller.getBoundingClientRect();
+				const linkRect = currentLink.getBoundingClientRect();
+				if (!scrollerRect.height || !linkRect.height) return;
+
+				const lineHeight = parseFloat(window.getComputedStyle(currentLink).lineHeight) || 24;
+				const threshold = lineHeight * 2;
+				const idealOffset = scroller.clientHeight * 0.25;
+				const maxScrollTop = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
+				const spaceAbove = linkRect.top - scrollerRect.top;
+				const spaceBelow = scrollerRect.bottom - linkRect.bottom;
+				const isFullyAboveViewport = linkRect.bottom <= scrollerRect.top;
+				const isFullyBelowViewport = linkRect.top >= scrollerRect.bottom;
+				const isFullyOutOfView = isFullyAboveViewport || isFullyBelowViewport;
+
+				let nextScrollTop = null;
+				if (isFullyOutOfView) {
+					const targetScrollTop = scroller.scrollTop + (linkRect.top - scrollerRect.top) - idealOffset;
+					nextScrollTop = Math.min(Math.max(0, targetScrollTop), maxScrollTop);
+				} else if (spaceAbove < threshold) {
+					nextScrollTop = Math.max(0, scroller.scrollTop - (threshold - spaceAbove));
+				} else if (spaceBelow < threshold) {
+					nextScrollTop = Math.min(maxScrollTop, scroller.scrollTop + (threshold - spaceBelow));
+				}
+
+				if (typeof nextScrollTop === 'number' && Math.abs(scroller.scrollTop - nextScrollTop) > 2) {
+					scroller.scrollTo({
+						top: nextScrollTop,
+						behavior: 'smooth',
+					});
+				}
+			};
+
+			const run = () => {
+				restoreScroll();
+				window.requestAnimationFrame(syncCurrentSidebarItemIntoView);
+			};
+
+			run();
+			document.addEventListener('astro:page-load', run);
+
+			if (menuButton instanceof HTMLElement) {
+				new MutationObserver(() => {
+					if (menuButton.getAttribute('aria-expanded') !== 'true') return;
+					window.requestAnimationFrame(() => {
+						restoreScroll();
+						window.requestAnimationFrame(syncCurrentSidebarItemIntoView);
+					});
+				}).observe(menuButton, {
+					attributes: true,
+					attributeFilter: ['aria-expanded'],
+				});
+			}
+		})();
+	</script>
+</sl-sidebar-state-persist>
+
+<style>
+	@layer starlight.core {
+		sl-sidebar-state-persist {
+			display: contents;
+		}
+	}
+</style>
