@@ -34,6 +34,7 @@ export default defineConfig({
 			tableOfContents: false,
 			customCss: ['./src/styles/starlight.css'],
 			components: {
+				Header: './src/components/LyricifyHeader.astro',
 				Footer: './src/components/LyricifyDocsFooter.astro',
 				PageTitle: './src/components/LyricifyPageTitle.astro',
 				FallbackContentNotice: './src/components/EmptyFallbackContentNotice.astro',
