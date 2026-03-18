@@ -86,8 +86,8 @@ export default defineConfig({
 								'lyricify-4/faq/buggy-apple',
 								'lyricify-4/faq/song-switch-lag',
 								'lyricify-4/faq/error-429',
-								'lyricify-4/faq/long-429',
-								'lyricify-4/faq/no-current-track',
+								'lyricify-4/faq/super-long-error-429',
+								'lyricify-4/faq/no-playback-info',
 								'lyricify-4/faq/media-session-not-connected',
 								'lyricify-4/faq/no-album-art',
 								'lyricify-4/faq/stutter-on-track-change',
@@ -147,7 +147,6 @@ export default defineConfig({
 								en: 'FAQ',
 							},
 							items: [
-								'lyricify-lite/faq',
 								'lyricify-lite/faq/store-vs-github',
 								'lyricify-lite/faq/self-contained',
 								'lyricify-lite/faq/cannot-detect-player',

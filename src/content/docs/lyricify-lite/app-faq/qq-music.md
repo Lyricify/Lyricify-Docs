@@ -3,6 +3,15 @@ title: QQ 音乐
 description: Lyricify Lite 常见问题（逐应用）。
 ---
 
+## 实现曲目精确匹配
+
+### 适用场景
+匹配到的曲目不准确，或希望实现更稳定的完美匹配。
+
+### 解决方案
+安装 [QQMusic-ID-Injector 插件](https://github.com/apoint123/QQMusic-ID-Injector)。  
+安装完成后，重启 QQ 音乐和 Lyricify Lite 即可。
+
 ## 使用 QQ 音乐时没有时间轴
 在使用 QQ 音乐时，手动修改播放进度后，Lyricify Lite 无法更新播放进度，歌词发生前后错位。
 
