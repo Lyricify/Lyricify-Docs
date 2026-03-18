@@ -198,6 +198,32 @@ function parseFrontmatterObject(frontmatter) {
 	return {};
 }
 
+function parseLooseFrontmatterValue(rawValue) {
+	const value = rawValue.trim();
+	if (!value) return '';
+
+	try {
+		return yaml.load(value);
+	} catch {
+		return value;
+	}
+}
+
+function parseLooseFrontmatterObject(frontmatter) {
+	const result = {};
+
+	for (const line of frontmatter.split(/\r?\n/)) {
+		if (!line || /^\s/.test(line) || line.trimStart().startsWith('#')) continue;
+		const match = line.match(/^([A-Za-z0-9_-]+):(.*)$/);
+		if (!match) continue;
+		const [, key, rawValue] = match;
+		if (!rawValue.trim()) continue;
+		result[key] = parseLooseFrontmatterValue(rawValue);
+	}
+
+	return result;
+}
+
 function dumpFrontmatter(frontmatterObject, newline) {
 	const dumped = yaml
 		.dump(frontmatterObject, {
@@ -223,13 +249,30 @@ function mergeTranslatedFrontmatter(sourceContent, translatedContent) {
 				...parseFrontmatterObject(translatedParts.frontmatter),
 			};
 		} catch (error) {
-			console.warn('Falling back to source frontmatter due to invalid translated frontmatter:', error);
+			const salvagedFrontmatter = parseLooseFrontmatterObject(translatedParts.frontmatter);
+			if (Object.keys(salvagedFrontmatter).length > 0) {
+				mergedFrontmatter = {
+					...sourceFrontmatter,
+					...salvagedFrontmatter,
+				};
+			} else {
+				console.warn(`Using source frontmatter for invalid translated frontmatter in ${sourceFrontmatter.title ?? 'unknown page'}.`);
+			}
 		}
 	}
 
 	mergedFrontmatter.autoTranslated = true;
 
 	return `${dumpFrontmatter(mergedFrontmatter, sourceParts.newline)}${translatedParts.body}`;
+}
+
+function rewriteRelativeModuleSpecifiers(relativePath, content) {
+	if (path.extname(relativePath).toLowerCase() !== '.mdx') return content;
+
+	return content.replace(
+		/^(\s*(?:import|export)\s+(?:.+?\s+from\s+)?['"])(\.\.\/[^'"]+)(['"];?\s*)$/gm,
+		(_, before, specifier, after) => `${before}../${specifier}${after}`
+	);
 }
 
 async function translateFile(relativePath, sourceContent) {
@@ -402,9 +445,12 @@ async function main() {
 
 	let translatedCount = 0;
 	for (const item of pendingTranslations) {
-		const translatedContent = mergeTranslatedFrontmatter(
+		const translatedContent = rewriteRelativeModuleSpecifiers(
+			item.relativePath,
+			mergeTranslatedFrontmatter(
 			item.sourceContent,
 			await translateFile(item.relativePath, item.sourceContent)
+			)
 		);
 		await writeFileEnsured(item.cachePath, translatedContent);
 		await writeFileEnsured(item.targetPath, translatedContent);
