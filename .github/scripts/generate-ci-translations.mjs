@@ -155,16 +155,15 @@ function extractTranslatedContent(textPayload) {
 
 function markAsAutoTranslated(content) {
 	const normalized = content.replace(/^\uFEFF/, '');
-	if (normalized.startsWith('---\n')) {
-		const frontmatterEnd = normalized.indexOf('\n---\n', 4);
-		if (frontmatterEnd !== -1) {
-			const frontmatter = normalized.slice(4, frontmatterEnd);
-			const body = normalized.slice(frontmatterEnd + 5);
-			const nextFrontmatter = /^autoTranslated:/m.test(frontmatter)
-				? frontmatter.replace(/^autoTranslated:.*$/m, 'autoTranslated: true')
-				: `${frontmatter}\nautoTranslated: true`;
-			return `---\n${nextFrontmatter}\n---\n${body}`;
-		}
+	const frontmatterMatch = normalized.match(/^---\r?\n([\s\S]*?)\r?\n---(\r?\n|$)/);
+	if (frontmatterMatch) {
+		const [, frontmatter, separator] = frontmatterMatch;
+		const body = normalized.slice(frontmatterMatch[0].length);
+		const newline = separator.includes('\r\n') || normalized.includes('\r\n') ? '\r\n' : '\n';
+		const nextFrontmatter = /^autoTranslated:/m.test(frontmatter)
+			? frontmatter.replace(/^autoTranslated:.*$/m, 'autoTranslated: true')
+			: `${frontmatter}${newline}autoTranslated: true`;
+		return `---${newline}${nextFrontmatter}${newline}---${newline}${body}`;
 	}
 	return `---\nautoTranslated: true\n---\n\n${normalized}`;
 }
