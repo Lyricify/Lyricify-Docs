@@ -12,10 +12,33 @@ const cacheFilesRoot = path.join(cacheRoot, 'files');
 const manifestPath = path.join(cacheRoot, 'manifest.json');
 
 const markdownExtensions = new Set(['.md', '.mdx']);
-const promptVersion = '2026-03-17-v1';
+const promptVersion = '2026-03-18-v3';
 const model = process.env.TRANSLATION_MODEL;
 const apiBaseUrl = (process.env.TRANSLATION_BASE_URL || 'https://api.openai.com/v1').replace(/\/$/, '');
 const apiKey = process.env.TRANSLATION_API_KEY;
+
+const terminologyGlossary = [
+	'Use the following canonical translations and casing for Lyricify-specific terms whenever they appear in the Chinese source:',
+	'Lyricify => Lyricify',
+	'Lyricify 4 => Lyricify 4',
+	'Lyricify Lite => Lyricify Lite',
+	'Lyricify Mobile => Lyricify Mobile',
+	'桌面歌词 => Desktop Lyrics',
+	'灵动词岛 => Dynamic Lyrics Island',
+	'任务栏歌词 => Taskbar Lyrics',
+	'Apple Music 歌词 => Apple Music Lyrics',
+	'妙控条 => Magic Strip',
+	'对唱视图 => Duet View',
+	'背景人声 => Background Vocals',
+	'多行高亮 => Multi-line Highlight',
+	'呼吸点 => Breathing Dots',
+	'拖动效果 => Pulling Effect',
+	'单词发光效果 => Word Shining Effect',
+	'Lyricify 全屏 => Lyricify Fullscreen',
+	'曲目管理 => Track Management',
+	'Apple Music 时间轴稳定器 => Apple Music Timeline Stabilizer',
+	'汽水音乐 => Soda Music',
+].join(' ');
 
 const translationInstructions = [
 	'You translate Simplified Chinese Astro/Starlight documentation into English for CI builds.',
@@ -25,6 +48,7 @@ const translationInstructions = [
 	'Do not add commentary, notes, or code fences outside the required output markers.',
 	'Do not translate file paths, import paths, image paths, URLs, slug-like strings, or code identifiers.',
 	'Keep formatting stable so repeated runs produce minimal diffs.',
+	terminologyGlossary,
 ].join(' ');
 
 async function pathExists(targetPath) {
