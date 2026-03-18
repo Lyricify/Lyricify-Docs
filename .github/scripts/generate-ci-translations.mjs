@@ -10,7 +10,7 @@ const cacheFilesRoot = path.join(cacheRoot, 'files');
 const manifestPath = path.join(cacheRoot, 'manifest.json');
 
 const markdownExtensions = new Set(['.md', '.mdx']);
-const promptVersion = '2026-03-18-v5';
+const promptVersion = '2026-03-18-v6';
 const model = process.env.TRANSLATION_MODEL;
 const apiBaseUrl = (process.env.TRANSLATION_BASE_URL || 'https://api.openai.com/v1').replace(/\/$/, '');
 const apiKey = process.env.TRANSLATION_API_KEY;
@@ -132,6 +132,10 @@ function buildSourceHash(localeConfig, content) {
 
 function replaceExtension(relativePath, nextExtension) {
 	return relativePath.replace(/\.[^./]+$/, nextExtension);
+}
+
+function escapeRegex(value) {
+	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 async function findExistingLocalizedDocPath(localeConfig, relativePath) {
@@ -335,6 +339,84 @@ function mergeTranslatedFrontmatter(sourceContent, translatedContent) {
 	return `${dumpFrontmatter(mergedFrontmatter, sourceParts.newline)}${translatedParts.body}`;
 }
 
+function extractLeadingModuleStatements(content) {
+	const { body } = splitFrontmatter(content);
+	const match = body.match(/^((?:\s*(?:import|export)\s+.*(?:\r?\n|$))+)/);
+	return {
+		block: match?.[1] ?? '',
+		statements: match?.[1].match(/^\s*(?:import|export)\s+.*$/gm) ?? [],
+		bodyWithoutBlock: match ? body.slice(match[1].length) : body,
+	};
+}
+
+function extractImportBindings(statement) {
+	const match = statement.trim().match(/^import\s+(.+?)\s+from\s+['"][^'"]+['"]\s*;?$/);
+	if (!match) return [];
+
+	const bindings = [];
+	let clause = match[1].trim();
+
+	if (!clause.startsWith('{') && !clause.startsWith('*')) {
+		const defaultImportMatch = clause.match(/^([A-Za-z_$][\w$]*)(?:\s*,\s*([\s\S]+))?$/);
+		if (defaultImportMatch) {
+			bindings.push(defaultImportMatch[1]);
+			clause = defaultImportMatch[2]?.trim() ?? '';
+		}
+	}
+
+	if (!clause) return bindings;
+
+	if (clause.startsWith('{') && clause.endsWith('}')) {
+		for (const part of clause.slice(1, -1).split(',')) {
+			const trimmedPart = part.trim();
+			if (!trimmedPart) continue;
+			const aliasMatch = trimmedPart.match(/\bas\s+([A-Za-z_$][\w$]*)$/);
+			bindings.push(aliasMatch ? aliasMatch[1] : trimmedPart);
+		}
+		return bindings;
+	}
+
+	const namespaceMatch = clause.match(/^\*\s+as\s+([A-Za-z_$][\w$]*)$/);
+	if (namespaceMatch) {
+		bindings.push(namespaceMatch[1]);
+	}
+
+	return bindings;
+}
+
+function restoreMdxModuleStatements(relativePath, sourceContent, translatedContent) {
+	if (path.extname(relativePath).toLowerCase() !== '.mdx') return translatedContent;
+
+	const translatedParts = splitFrontmatter(translatedContent);
+	const sourceModuleBlock = extractLeadingModuleStatements(sourceContent);
+	const translatedModuleBlock = extractLeadingModuleStatements(translatedContent);
+
+	if (!sourceModuleBlock.block) return translatedContent;
+
+	let nextBodyWithoutBlock = translatedModuleBlock.bodyWithoutBlock;
+	const statementCount = Math.min(sourceModuleBlock.statements.length, translatedModuleBlock.statements.length);
+
+	for (let index = 0; index < statementCount; index += 1) {
+		const sourceBindings = extractImportBindings(sourceModuleBlock.statements[index]);
+		const translatedBindings = extractImportBindings(translatedModuleBlock.statements[index]);
+		if (sourceBindings.length === 0 || sourceBindings.length !== translatedBindings.length) continue;
+
+		for (let bindingIndex = 0; bindingIndex < sourceBindings.length; bindingIndex += 1) {
+			const sourceBinding = sourceBindings[bindingIndex];
+			const translatedBinding = translatedBindings[bindingIndex];
+			if (sourceBinding === translatedBinding) continue;
+
+			nextBodyWithoutBlock = nextBodyWithoutBlock.replace(
+				new RegExp(`(?<![\\w$])${escapeRegex(translatedBinding)}(?![\\w$])`, 'g'),
+				sourceBinding
+			);
+		}
+	}
+
+	const restoredBody = `${sourceModuleBlock.block}${nextBodyWithoutBlock}`;
+	return `${dumpFrontmatter(parseFrontmatterObject(translatedParts.frontmatter), translatedParts.newline)}${restoredBody}`;
+}
+
 function rewriteRelativeModuleSpecifiers(relativePath, content) {
 	if (path.extname(relativePath).toLowerCase() !== '.mdx') return content;
 
@@ -536,9 +618,13 @@ async function main() {
 	for (const item of pendingTranslations) {
 		const translatedContent = rewriteRelativeModuleSpecifiers(
 			item.relativePath,
-			mergeTranslatedFrontmatter(
+			restoreMdxModuleStatements(
+				item.relativePath,
 				item.sourceContent,
-				await translateFile(item.localeConfig, item.relativePath, item.sourceContent)
+				mergeTranslatedFrontmatter(
+					item.sourceContent,
+					await translateFile(item.localeConfig, item.relativePath, item.sourceContent)
+				)
 			)
 		);
 		await writeFileEnsured(item.cachePath, translatedContent);

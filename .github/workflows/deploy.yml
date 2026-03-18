@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate incremental English docs for CI
+      - name: Generate incremental translation docs for CI
         run: node ./.github/scripts/generate-ci-translations.mjs
         env:
           TRANSLATION_API_KEY: ${{ secrets.TRANSLATION_API_KEY }}
