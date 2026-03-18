@@ -48,7 +48,7 @@ Lyricify Mobile for macOS 仅支持 `内嵌网页登录`，如果你在直接登
 ### 导致原因
 Spotify 返回了 `429 请求过多` 错误，不是 Lyricify 的锅。
 ### 解决方案
-配置自定义 API Client，可参考[这个教程](../custom-api-client/)。  
+配置自定义 API Client，可参见[自定义 Spotify API Client 配置教程](../custom-api-client/)。  
 或者等待，等到 Spotify 不返回 429 了，就好了。  
 
 ## 超长 429 错误

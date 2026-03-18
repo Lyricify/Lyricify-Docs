@@ -99,8 +99,7 @@ export default defineConfig({
 								en: 'FAQ',
 							},
 							items: [
-								'lyricify-4/faq/store-vs-github',
-								'lyricify-4/faq/self-contained',
+								'lyricify-4/faq/version-info',
 								'lyricify-4/faq/play-button-no-response',
 								'lyricify-4/faq/no-lyrics-from-server',
 								'lyricify-4/faq/auth-no-response',
@@ -174,8 +173,7 @@ export default defineConfig({
 								en: 'FAQ',
 							},
 							items: [
-								'lyricify-lite/faq/store-vs-github',
-								'lyricify-lite/faq/self-contained',
+								'lyricify-lite/faq/version-info',
 								'lyricify-lite/faq/cannot-detect-player',
 								'lyricify-lite/faq/store-shortcut',
 								'lyricify-lite/faq/desktop-lyrics-disappear',

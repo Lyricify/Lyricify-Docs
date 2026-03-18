@@ -1,8 +1,9 @@
 ---
-title: Microsoft Store 版本与 GitHub 版本有什么区别
-description: Microsoft Store 版本与 GitHub 版本有什么区别。
+title: 版本说明
+description: Lyricify 4 不同安装版本说明。
 ---
 
+## Microsoft Store 版本与 GitHub 版本的区别
 *注：下文中的 GitHub 版本指 Microsoft Store 版本外的其他分发方式分发的版本，含群聊、网盘等分发渠道。*
 
 ### 主要区别
@@ -31,3 +32,8 @@ Lyricify 4 是免费软件，仅部分个性化设置为商店版独享。如果
 如果你在 Microsoft Store 购买过程中遇到困难，可以考虑通过打赏的方式支持 Lyricify。  
 
 如果你发现有人在非法销售本软件 (只有 Microsoft Store 中的 Lyricify 是官方发布)，请联系我们！感谢你的支持！
+
+## Self-contained 版本特殊说明
+Self-contained 版本包含 `.NET 6.0 Desktop Runtime` 运行时，仅建议那些因某些原因无法正常安装 `.NET 6.0 Desktop Runtime` 的用户使用。其他用户建议选择 Microsoft Store 版本或标准安装版（即不包含 .NET 运行时的版本）。
+
+请注意：Self-contained 版本不支持自动更新。在发布新版本后，你需要手动下载并安装更新。Lyricify 默认开启自动更新，尽管 Self-contained 版本仍会尝试下载并安装更新，但由于更新内容为标准版本，即不包含 .NET 运行时，更新后 Lyricify 应用将无法启动。  

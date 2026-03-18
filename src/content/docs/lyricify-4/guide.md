@@ -12,7 +12,7 @@ Lyricify 4 是适用于 Windows 的桌面歌词软件。首次使用建议先阅
 - [账户与相关问题](../account/)
 
 ## 常用功能
-- [Microsoft Store 版本与 GitHub 版本有什么区别](../faq/store-vs-github/)
+- [Microsoft Store 版本与 GitHub 版本的区别](../faq/version-info/)
 - [Spotify Premium 在 Lyricify 中的独占功能](../getting-started/#spotify-premium-独占功能)
 - [自定义 API Client](../custom-api-client/)
 - [歌词导入](../lyrics-and-track-management/#歌词标记及导入)

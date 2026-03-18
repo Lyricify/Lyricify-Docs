@@ -10,7 +10,7 @@ Lyricify Lite 适用于已接入 SMTC 的播放器和媒体应用。你可以在
 - [基础功能与设置](../basic/)
 
 ## 常见问题
-- [Microsoft Store 版本与 GitHub 版本有什么区别](../faq/store-vs-github/)
+- [Microsoft Store 版本与 GitHub 版本的区别](../faq/version-info/)
 - [无法检测到播放器](../faq/cannot-detect-player/)
 - [Microsoft Store 版创建快捷方式](../faq/store-shortcut/)
 - [配置文件迁移](../faq/config-migration/)
