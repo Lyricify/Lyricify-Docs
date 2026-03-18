@@ -46,30 +46,19 @@ export default defineConfig({
 				FallbackContentNotice: './src/components/EmptyFallbackContentNotice.astro',
 			},
 			sidebar: [
-				{
-					label: '下载',
-					translations: {
-						'zh-hant': '下載',
-						en: 'Download',
-					},
-					slug: 'download',
-				},
-				{
-					label: '选择合适的版本',
-					translations: {
-						'zh-hant': '選擇合適的版本',
-						en: 'Choose the Right Version',
-					},
-					slug: 'choose-the-right-version',
-				},
+				'download',
+				'choose-the-right-version',
 				{
 					label: 'Lyricify 4',
-					translations: {
-						'zh-hant': 'Lyricify 4',
-						en: 'Lyricify 4',
-					},
 					items: [
-						'lyricify-4/guide',
+						{
+							label: '总览',
+							translations: {
+								'zh-hant': '總覽',
+								en: 'Overview',
+							},
+							slug: 'lyricify-4/guide',
+						},
 						'lyricify-4/basic',
 						'lyricify-4/advanced',
 						'lyricify-4/custom-api-client',
@@ -140,12 +129,16 @@ export default defineConfig({
 				},
 				{
 					label: 'Lyricify Lite',
-					translations: {
-						'zh-hant': 'Lyricify Lite',
-						en: 'Lyricify Lite',
-					},
 					items: [
-						'lyricify-lite/guide',
+						{
+							label: '总览',
+							translations: {
+								'zh-hant': '總覽',
+								en: 'Overview',
+							},
+							slug: 'lyricify-lite/guide',
+						},
+						'lyricify-lite/supported-apps',
 						'lyricify-lite/basic',
 						{
 							label: '常见问题',
@@ -187,12 +180,16 @@ export default defineConfig({
 				},
 				{
 					label: 'Lyricify Mobile',
-					translations: {
-						'zh-hant': 'Lyricify Mobile',
-						en: 'Lyricify Mobile',
-					},
 					items: [
-						'lyricify-mobile/guide',
+						{
+							label: '总览',
+							translations: {
+								'zh-hant': '總覽',
+								en: 'Overview',
+							},
+							slug: 'lyricify-mobile/guide',
+						},
+						'lyricify-mobile/installation',
 						'lyricify-mobile/ios-ipa-guide',
 						'lyricify-mobile/custom-api-client',
 						'lyricify-mobile/troubleshooting',

@@ -3,11 +3,15 @@ title: Lyricify 4 使用指南
 description: Lyricify 4 使用指南。
 ---
 
-## 快速导航 & 常见问题
-如果您是 Lyricify 4 的新用户，建议您完整阅读本指南！阅读后，您将掌握更多 Lyricify 4 使用技巧，并节约大量时间。  
-如果您是 Lyricify 4 的老用户，遇到了一些问题，则可以在下方查找是否有您想知道的问题。  
+Lyricify 4 是适用于 Windows 的桌面歌词软件。首次使用建议先阅读基础功能与进阶功能页面，遇到问题再从常见问题中查找对应条目。
 
-### 功能
+## 开始使用
+- [基础功能与界面说明](../basic/)
+- [进阶功能与配置](../advanced/)
+- [自定义 API Client](../custom-api-client/)
+- [账户与相关问题](../account/)
+
+## 常用功能
 - [Microsoft Store 版本与 GitHub 版本有什么区别](../faq/store-vs-github/)
 - [Spotify Premium 在 Lyricify 中的独占功能](../basic/#spotify-premium-独占功能)
 - [自定义 API Client](../custom-api-client/)
@@ -18,7 +22,7 @@ description: Lyricify 4 使用指南。
 - [开机自启动](../advanced/#开机自启动)
 - [自定义配置](../advanced/#自定义配置)
 
-### 常见问题
+## 常见问题
 - [启动时提示错误](../faq/startup-error/)
 - [切歌后反应迟钝](../faq/song-switch-lag/)
 - [过多请求 429 错误](../faq/error-429/)
@@ -28,6 +32,7 @@ description: Lyricify 4 使用指南。
 - [无法导入歌词](../faq/cannot-upload-lyrics/)
 - [其它常见问题](../faq/)
 
+## 名称与支持
 **注意：** 如需反馈或提问，对于 Lyricify 功能，请使用[官方认定的正确的名称](../terms/)来描述。  
 
 Lyricify 4 是免费软件，仅部分个性化设置为商店版独享。如果你觉得 Lyricify 4 做的不错，则可以通过以下渠道支持：
