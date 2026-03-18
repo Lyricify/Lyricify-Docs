@@ -16,15 +16,12 @@ hero:
       icon: right-arrow
 ---
 
-import { Card, CardGrid, Icon } from '@astrojs/starlight/components';
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import HomeSiteLinks from '../../components/HomeSiteLinks.astro';
 
 ## 获取软件
 
-<div class="home-quick-links">
-  <a class="home-quick-link-button" href="./download/">下载<Icon class="home-quick-link-icon" name="download" size="1.5rem" /></a>
-  <a class="home-quick-link-button" href="./choose-the-right-version/">选择合适的版本<Icon class="home-quick-link-icon" name="right-arrow" size="1.5rem" /></a>
-  <a class="home-quick-link-button is-minimal" href="https://github.com/WXRIW/Lyricify-App">GitHub 仓库<Icon class="home-quick-link-icon" name="external" size="1.5rem" /></a>
-</div>
+<HomeSiteLinks />
 
 ## 产品系列
 

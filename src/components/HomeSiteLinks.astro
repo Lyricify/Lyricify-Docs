@@ -1,0 +1,54 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+
+const { starlightRoute } = Astro.locals;
+const lang = starlightRoute.lang.toLowerCase();
+const locale =
+	lang.startsWith('en') ? 'en' : lang.startsWith('zh-hant') ? 'zh-hant' : 'zh-cn';
+
+const labels = {
+	'zh-cn': {
+		download: '下载 Lyricify',
+		versions: '选择合适的版本',
+		github: 'GitHub 仓库',
+	},
+	'zh-hant': {
+		download: '下載 Lyricify',
+		versions: '選擇合適的版本',
+		github: 'GitHub 倉庫',
+	},
+	en: {
+		download: 'Download Lyricify',
+		versions: 'Choose the Right Version',
+		github: 'GitHub Repository',
+	},
+}[locale];
+
+// When lyricify.app adds a Traditional Chinese version, update the `zh-hant` targets below.
+const siteTargets = {
+	'zh-cn': {
+		download: 'https://lyricify.app/zh-cn/download/',
+		versions: 'https://lyricify.app/zh-cn/',
+	},
+	'zh-hant': {
+		download: 'https://lyricify.app/zh-cn/download/',
+		versions: 'https://lyricify.app/zh-cn/',
+	},
+	en: {
+		download: 'https://lyricify.app/download/',
+		versions: 'https://lyricify.app/',
+	},
+}[locale];
+---
+
+<div class="home-quick-links">
+	<a class="home-quick-link-button" href={siteTargets.download}>
+		{labels.download}<Icon class="home-quick-link-icon" name="download" size="1.5rem" />
+	</a>
+	<a class="home-quick-link-button" href={siteTargets.versions}>
+		{labels.versions}<Icon class="home-quick-link-icon" name="right-arrow" size="1.5rem" />
+	</a>
+	<a class="home-quick-link-button is-minimal" href="https://github.com/WXRIW/Lyricify-App">
+		{labels.github}<Icon class="home-quick-link-icon" name="external" size="1.5rem" />
+	</a>
+</div>

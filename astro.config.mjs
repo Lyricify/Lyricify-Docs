@@ -46,8 +46,6 @@ export default defineConfig({
 				FallbackContentNotice: './src/components/EmptyFallbackContentNotice.astro',
 			},
 			sidebar: [
-				'download',
-				'choose-the-right-version',
 				{
 					label: 'Lyricify 4',
 					items: [
