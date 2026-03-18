@@ -6,7 +6,7 @@ description: Lyricify 4 使用指南。
 Lyricify 4 是适用于 Windows 的桌面歌词软件。首次使用建议先阅读基础功能与进阶功能页面，遇到问题再从常见问题中查找对应条目。
 
 ## 开始使用
-- [运行与认识](../getting-started/)
+- [快速开始](../getting-started/)
 - [歌词与曲目管理](../lyrics-and-track-management/)
 - [自定义 API Client](../custom-api-client/)
 - [账户与相关问题](../account/)
@@ -15,8 +15,7 @@ Lyricify 4 是适用于 Windows 的桌面歌词软件。首次使用建议先阅
 - [Microsoft Store 版本与 GitHub 版本的区别](../faq/version-info/)
 - [Spotify Premium 在 Lyricify 中的独占功能](../getting-started/#spotify-premium-独占功能)
 - [自定义 API Client](../custom-api-client/)
-- [歌词导入](../lyrics-and-track-management/#歌词标记及导入)
-- [歌词管理及高级操作](../lyrics-and-track-management/#曲目管理)
+- [歌词导入与管理](../lyrics-and-track-management/)
 - [全局快捷键](../settings/global-shortcuts/)
 - [曲库可用性查询](../tools/availability-check/)
 - [开机自启动](../tools/auto-start/)
@@ -24,13 +23,12 @@ Lyricify 4 是适用于 Windows 的桌面歌词软件。首次使用建议先阅
 
 ## 常见问题
 - [启动时提示错误](../faq/startup-error/)
+- [Lyricify 不显示歌词](../faq/no-playback-info/)
 - [切歌后反应迟钝](../faq/song-switch-lag/)
 - [过多请求 429 错误](../faq/error-429/)
 - [Apple Music 歌词界面卡顿](../faq/apple-music-performance/)
-- [专辑图片不显示](../faq/no-album-art/)
-- [Lyricify 不显示歌词](../faq/no-playback-info/)
 - [无法导入歌词](../faq/cannot-upload-lyrics/)
-- [其它常见问题](../faq/)
+- 其它常见问题
 
 ## 名称与支持
 **注意：** 如需反馈或提问，对于 Lyricify 功能，请使用[官方认定的正确的名称](../terms/)来描述。  

@@ -1,6 +1,6 @@
 ---
-title: 运行与认识
-description: Lyricify 4 运行与认识教程。
+title: 快速开始
+description: Lyricify 4 快速开始教程。
 ---
 
 ## 运行 Lyricify 4
