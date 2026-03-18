@@ -12,7 +12,7 @@ const cacheFilesRoot = path.join(cacheRoot, 'files');
 const manifestPath = path.join(cacheRoot, 'manifest.json');
 
 const markdownExtensions = new Set(['.md', '.mdx']);
-const promptVersion = '2026-03-18-v3';
+const promptVersion = '2026-03-18-v4';
 const model = process.env.TRANSLATION_MODEL;
 const apiBaseUrl = (process.env.TRANSLATION_BASE_URL || 'https://api.openai.com/v1').replace(/\/$/, '');
 const apiKey = process.env.TRANSLATION_API_KEY;
@@ -36,6 +36,7 @@ const terminologyGlossary = [
 	'单词发光效果 => Word Shining Effect',
 	'Lyricify 全屏 => Lyricify Fullscreen',
 	'曲目管理 => Track Management',
+	'歌词标记 => Lyrics Marking',
 	'Apple Music 时间轴稳定器 => Apple Music Timeline Stabilizer',
 	'汽水音乐 => Soda Music',
 ].join(' ');
@@ -45,6 +46,7 @@ const translationInstructions = [
 	'Output must be a complete translated file body in the same format as the source file.',
 	'Preserve markdown structure, frontmatter keys, admonition syntax, code fences, tables, HTML tags, JSX, imports, exports, identifiers, URLs, anchors, and relative paths.',
 	'Translate human-readable Chinese text into concise natural English.',
+	'When translating the common noun “歌词”, prefer “lyrics” instead of singular “lyric” in UI labels, headings, and feature names unless the source clearly refers to one lyric line or one lyric file.',
 	'Do not add commentary, notes, or code fences outside the required output markers.',
 	'Do not translate file paths, import paths, image paths, URLs, slug-like strings, or code identifiers.',
 	'Keep formatting stable so repeated runs produce minimal diffs.',
