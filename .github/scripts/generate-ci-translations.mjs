@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
+import yaml from 'js-yaml';
 
 const repoRoot = process.cwd();
 const docsRoot = path.join(repoRoot, 'src', 'content', 'docs');
@@ -58,6 +59,23 @@ function sha256(value) {
 
 function buildSourceHash(content) {
 	return sha256(`${promptVersion}\n${model}\n${content}`);
+}
+
+function replaceExtension(relativePath, nextExtension) {
+	return relativePath.replace(/\.[^./]+$/, nextExtension);
+}
+
+async function findExistingEnglishDocPath(relativePath) {
+	const preferredPath = path.join(generatedRoot, relativePath);
+	if (await pathExists(preferredPath)) return preferredPath;
+
+	for (const extension of markdownExtensions) {
+		const candidatePath = path.join(generatedRoot, replaceExtension(relativePath, extension));
+		if (candidatePath === preferredPath) continue;
+		if (await pathExists(candidatePath)) return candidatePath;
+	}
+
+	return null;
 }
 
 async function* walkSourceFiles(currentDir = docsRoot) {
@@ -153,19 +171,65 @@ function extractTranslatedContent(textPayload) {
 	);
 }
 
-function markAsAutoTranslated(content) {
+function splitFrontmatter(content) {
 	const normalized = content.replace(/^\uFEFF/, '');
-	const frontmatterMatch = normalized.match(/^---\r?\n([\s\S]*?)\r?\n---(\r?\n|$)/);
-	if (frontmatterMatch) {
-		const [, frontmatter, separator] = frontmatterMatch;
-		const body = normalized.slice(frontmatterMatch[0].length);
-		const newline = separator.includes('\r\n') || normalized.includes('\r\n') ? '\r\n' : '\n';
-		const nextFrontmatter = /^autoTranslated:/m.test(frontmatter)
-			? frontmatter.replace(/^autoTranslated:.*$/m, 'autoTranslated: true')
-			: `${frontmatter}${newline}autoTranslated: true`;
-		return `---${newline}${nextFrontmatter}${newline}---${newline}${body}`;
+	const match = normalized.match(/^---\r?\n([\s\S]*?)\r?\n---(\r?\n|$)/);
+	if (!match) {
+		return {
+			frontmatter: null,
+			body: normalized,
+			newline: normalized.includes('\r\n') ? '\r\n' : '\n',
+		};
 	}
-	return `---\nautoTranslated: true\n---\n\n${normalized}`;
+
+	return {
+		frontmatter: match[1],
+		body: normalized.slice(match[0].length),
+		newline: match[2].includes('\r\n') || normalized.includes('\r\n') ? '\r\n' : '\n',
+	};
+}
+
+function parseFrontmatterObject(frontmatter) {
+	if (!frontmatter) return {};
+	const parsed = yaml.load(frontmatter);
+	if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+		return parsed;
+	}
+	return {};
+}
+
+function dumpFrontmatter(frontmatterObject, newline) {
+	const dumped = yaml
+		.dump(frontmatterObject, {
+			lineWidth: -1,
+			noRefs: true,
+			quotingType: '"',
+		})
+		.trimEnd();
+	return `---${newline}${dumped}${newline}---${newline}`;
+}
+
+function mergeTranslatedFrontmatter(sourceContent, translatedContent) {
+	const sourceParts = splitFrontmatter(sourceContent);
+	const translatedParts = splitFrontmatter(translatedContent);
+
+	const sourceFrontmatter = parseFrontmatterObject(sourceParts.frontmatter);
+	let mergedFrontmatter = { ...sourceFrontmatter };
+
+	if (translatedParts.frontmatter) {
+		try {
+			mergedFrontmatter = {
+				...sourceFrontmatter,
+				...parseFrontmatterObject(translatedParts.frontmatter),
+			};
+		} catch (error) {
+			console.warn('Falling back to source frontmatter due to invalid translated frontmatter:', error);
+		}
+	}
+
+	mergedFrontmatter.autoTranslated = true;
+
+	return `${dumpFrontmatter(mergedFrontmatter, sourceParts.newline)}${translatedParts.body}`;
 }
 
 async function translateFile(relativePath, sourceContent) {
@@ -250,7 +314,6 @@ async function main() {
 		entries: {},
 	});
 
-	await fs.rm(generatedRoot, { recursive: true, force: true });
 	await ensureDir(generatedRoot);
 
 	const markdownFiles = [];
@@ -266,9 +329,14 @@ async function main() {
 		}
 	}
 
+	let preservedAssetCount = 0;
 	for (const relativePath of assetFiles) {
 		const sourcePath = path.join(docsRoot, relativePath);
 		const targetPath = path.join(generatedRoot, relativePath);
+		if (await pathExists(targetPath)) {
+			preservedAssetCount += 1;
+			continue;
+		}
 		await copyFileEnsured(sourcePath, targetPath);
 	}
 
@@ -282,8 +350,15 @@ async function main() {
 
 	const pendingTranslations = [];
 	let restoredCount = 0;
+	let preservedEnglishDocsCount = 0;
 
 	for (const relativePath of markdownFiles.sort()) {
+		const existingEnglishDocPath = await findExistingEnglishDocPath(relativePath);
+		if (existingEnglishDocPath) {
+			preservedEnglishDocsCount += 1;
+			continue;
+		}
+
 		const sourcePath = path.join(docsRoot, relativePath);
 		const targetPath = path.join(generatedRoot, relativePath);
 		const cachePath = path.join(cacheFilesRoot, relativePath);
@@ -327,7 +402,8 @@ async function main() {
 
 	let translatedCount = 0;
 	for (const item of pendingTranslations) {
-		const translatedContent = markAsAutoTranslated(
+		const translatedContent = mergeTranslatedFrontmatter(
+			item.sourceContent,
 			await translateFile(item.relativePath, item.sourceContent)
 		);
 		await writeFileEnsured(item.cachePath, translatedContent);
@@ -342,6 +418,8 @@ async function main() {
 	const summary = {
 		source_docs: markdownFiles.length,
 		mirrored_assets: assetFiles.length,
+		preserved_assets: preservedAssetCount,
+		preserved_existing_english_docs: preservedEnglishDocsCount,
 		restored_from_cache: restoredCount,
 		translated: translatedCount,
 		cache_dir: toPosixPath(path.relative(repoRoot, cacheRoot)),
