@@ -6,7 +6,12 @@ interface Props {
 
 const { href, alt } = Astro.props;
 const locale = Astro.currentLocale ?? Astro.locals.starlightRoute?.lang ?? 'zh-CN';
-const languageCode = locale.toLowerCase().startsWith('en') ? 'en-us' : 'zh-cn';
+const localeLower = locale.toLowerCase();
+const languageCode = localeLower.startsWith('en')
+	? 'en-us'
+	: localeLower.startsWith('zh-hant')
+		? 'zh-tw'
+		: 'zh-cn';
 const badgeSrc = `https://get.microsoft.com/images/${languageCode}%20dark.svg`;
 ---
 

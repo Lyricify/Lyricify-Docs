@@ -9,12 +9,17 @@ export default defineConfig({
 		starlight({
 			title: {
 				'zh-CN': 'Lyricify Docs',
+				'zh-Hant': 'Lyricify Docs',
 				en: 'Lyricify Docs',
 			},
 			locales: {
 				root: {
 					label: '简体中文',
 					lang: 'zh-CN',
+				},
+				'zh-hant': {
+					label: '繁體中文',
+					lang: 'zh-Hant',
 				},
 				en: {
 					label: 'English',
@@ -44,6 +49,7 @@ export default defineConfig({
 				{
 					label: '下载',
 					translations: {
+						'zh-hant': '下載',
 						en: 'Download',
 					},
 					slug: 'download',
@@ -51,6 +57,7 @@ export default defineConfig({
 				{
 					label: '选择合适的版本',
 					translations: {
+						'zh-hant': '選擇合適的版本',
 						en: 'Choose the Right Version',
 					},
 					slug: 'choose-the-right-version',
@@ -58,6 +65,7 @@ export default defineConfig({
 				{
 					label: 'Lyricify 4',
 					translations: {
+						'zh-hant': 'Lyricify 4',
 						en: 'Lyricify 4',
 					},
 					items: [
@@ -68,6 +76,7 @@ export default defineConfig({
 						{
 							label: '常见问题',
 							translations: {
+								'zh-hant': '常見問題',
 								en: 'FAQ',
 							},
 							items: [
@@ -103,6 +112,7 @@ export default defineConfig({
 						{
 							label: '已知问题',
 							translations: {
+								'zh-hant': '已知問題',
 								en: 'Known Issues',
 							},
 							items: [
@@ -114,6 +124,7 @@ export default defineConfig({
 						{
 							label: '特殊问题',
 							translations: {
+								'zh-hant': '特殊問題',
 								en: 'Special Cases',
 							},
 							items: [
@@ -130,6 +141,7 @@ export default defineConfig({
 				{
 					label: 'Lyricify Lite',
 					translations: {
+						'zh-hant': 'Lyricify Lite',
 						en: 'Lyricify Lite',
 					},
 					items: [
@@ -138,6 +150,7 @@ export default defineConfig({
 						{
 							label: '常见问题',
 							translations: {
+								'zh-hant': '常見問題',
 								en: 'FAQ',
 							},
 							items: [
@@ -157,6 +170,7 @@ export default defineConfig({
 						{
 							label: '常见问题（逐应用）',
 							translations: {
+								'zh-hant': '常見問題（逐應用）',
 								en: 'FAQ (by App)',
 							},
 							items: [
@@ -174,6 +188,7 @@ export default defineConfig({
 				{
 					label: 'Lyricify Mobile',
 					translations: {
+						'zh-hant': 'Lyricify Mobile',
 						en: 'Lyricify Mobile',
 					},
 					items: [
@@ -186,6 +201,7 @@ export default defineConfig({
 				{
 					label: '歌词格式与制作',
 					translations: {
+						'zh-hant': '歌詞格式與製作',
 						en: 'Lyrics Formats & Authoring',
 					},
 					items: ['lyrics/guide'],

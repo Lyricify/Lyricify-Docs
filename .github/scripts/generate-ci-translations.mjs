@@ -5,53 +5,96 @@ import yaml from 'js-yaml';
 
 const repoRoot = process.cwd();
 const docsRoot = path.join(repoRoot, 'src', 'content', 'docs');
-const generatedLocale = 'en';
-const generatedRoot = path.join(docsRoot, generatedLocale);
 const cacheRoot = path.join(repoRoot, '.cache', 'ci-translations');
 const cacheFilesRoot = path.join(cacheRoot, 'files');
 const manifestPath = path.join(cacheRoot, 'manifest.json');
 
 const markdownExtensions = new Set(['.md', '.mdx']);
-const promptVersion = '2026-03-18-v4';
+const promptVersion = '2026-03-18-v5';
 const model = process.env.TRANSLATION_MODEL;
 const apiBaseUrl = (process.env.TRANSLATION_BASE_URL || 'https://api.openai.com/v1').replace(/\/$/, '');
 const apiKey = process.env.TRANSLATION_API_KEY;
 
-const terminologyGlossary = [
-	'Use the following canonical translations and casing for Lyricify-specific terms whenever they appear in the Chinese source:',
-	'Lyricify => Lyricify',
-	'Lyricify 4 => Lyricify 4',
-	'Lyricify Lite => Lyricify Lite',
-	'Lyricify Mobile => Lyricify Mobile',
-	'桌面歌词 => Desktop Lyrics',
-	'灵动词岛 => Dynamic Lyrics Island',
-	'任务栏歌词 => Taskbar Lyrics',
-	'Apple Music 歌词 => Apple Music Lyrics',
-	'妙控条 => Magic Strip',
-	'对唱视图 => Duet View',
-	'背景人声 => Background Vocals',
-	'多行高亮 => Multi-line Highlight',
-	'呼吸点 => Breathing Dots',
-	'拖动效果 => Pulling Effect',
-	'单词发光效果 => Word Shining Effect',
-	'Lyricify 全屏 => Lyricify Fullscreen',
-	'曲目管理 => Track Management',
-	'歌词标记 => Lyrics Marking',
-	'Apple Music 时间轴稳定器 => Apple Music Timeline Stabilizer',
-	'汽水音乐 => Soda Music',
-].join(' ');
-
-const translationInstructions = [
-	'You translate Simplified Chinese Astro/Starlight documentation into English for CI builds.',
+const commonTranslationInstructions = [
 	'Output must be a complete translated file body in the same format as the source file.',
 	'Preserve markdown structure, frontmatter keys, admonition syntax, code fences, tables, HTML tags, JSX, imports, exports, identifiers, URLs, anchors, and relative paths.',
-	'Translate human-readable Chinese text into concise natural English.',
-	'When translating the common noun “歌词”, prefer “lyrics” instead of singular “lyric” in UI labels, headings, and feature names unless the source clearly refers to one lyric line or one lyric file.',
 	'Do not add commentary, notes, or code fences outside the required output markers.',
 	'Do not translate file paths, import paths, image paths, URLs, slug-like strings, or code identifiers.',
 	'Keep formatting stable so repeated runs produce minimal diffs.',
-	terminologyGlossary,
-].join(' ');
+];
+
+const localeConfigs = [
+	createLocaleConfig({
+		key: 'en',
+		languageName: 'English',
+		additionalInstructions: [
+			'You translate Simplified Chinese Astro/Starlight documentation into concise natural English for CI builds.',
+			'When translating the common noun “歌词”, prefer “lyrics” instead of singular “lyric” in UI labels, headings, and feature names unless the source clearly refers to one lyric line or one lyric file.',
+		],
+		terminologyGlossary: [
+			'Use the following canonical translations and casing for Lyricify-specific terms whenever they appear in the Simplified Chinese source:',
+			'Lyricify => Lyricify',
+			'Lyricify 4 => Lyricify 4',
+			'Lyricify Lite => Lyricify Lite',
+			'Lyricify Mobile => Lyricify Mobile',
+			'桌面歌词 => Desktop Lyrics',
+			'灵动词岛 => Dynamic Lyrics Island',
+			'任务栏歌词 => Taskbar Lyrics',
+			'Apple Music 歌词 => Apple Music Lyrics',
+			'妙控条 => Magic Strip',
+			'对唱视图 => Duet View',
+			'背景人声 => Background Vocals',
+			'多行高亮 => Multi-line Highlight',
+			'呼吸点 => Breathing Dots',
+			'拖动效果 => Pulling effect',
+			'单词发光效果 => Word shining effect',
+			'Lyricify 全屏 => Lyricify Fullscreen',
+			'曲目管理 => Track Management',
+			'歌词标记 => Lyrics Marking',
+			'Apple Music 时间轴稳定器 => Apple Music Timeline Stabilizer',
+			'汽水音乐 => Soda Music',
+			'中国大陆 => Chinese Mainland',
+		],
+	}),
+	createLocaleConfig({
+		key: 'zh-hant',
+		languageName: 'Traditional Chinese',
+		additionalInstructions: [
+			'You convert Simplified Chinese Astro/Starlight documentation into natural Traditional Chinese for CI builds.',
+			'Use Traditional Chinese characters throughout the translated text.',
+			'Prefer official Lyricify Traditional Chinese UI terminology when the source contains product-specific terms.',
+		],
+		terminologyGlossary: [
+			'Use the following canonical Traditional Chinese terms and casing for Lyricify-specific terms whenever they appear in the Simplified Chinese source:',
+			'Lyricify => Lyricify',
+			'Lyricify 4 => Lyricify 4',
+			'Lyricify Lite => Lyricify Lite',
+			'Lyricify Mobile => Lyricify Mobile',
+			'桌面歌词 => 桌面歌詞',
+			'灵动词岛 => 靈動詞島',
+			'任务栏歌词 => 工作列歌詞',
+			'Apple Music 歌词 => Apple Music 歌詞',
+			'妙控条 => 妙控條',
+			'对唱视图 => 同框對唱',
+			'背景人声 => 背景人聲',
+			'呼吸点 => 呼吸點',
+			'拖动效果 => 拖動效果',
+			'单词发光效果 => 單字發光效果',
+			'Lyricify 全屏 => Lyricify 全螢幕',
+		],
+	}),
+];
+
+const generatedLocaleKeys = new Set(localeConfigs.map(({ key }) => key));
+
+function createLocaleConfig({ key, languageName, additionalInstructions, terminologyGlossary }) {
+	return {
+		key,
+		languageName,
+		root: path.join(docsRoot, key),
+		translationInstructions: [...commonTranslationInstructions, ...additionalInstructions, terminologyGlossary.join(' ')].join(' '),
+	};
+}
 
 async function pathExists(targetPath) {
 	try {
@@ -83,20 +126,20 @@ function sha256(value) {
 	return createHash('sha256').update(value).digest('hex');
 }
 
-function buildSourceHash(content) {
-	return sha256(`${promptVersion}\n${model}\n${content}`);
+function buildSourceHash(localeConfig, content) {
+	return sha256(`${promptVersion}\n${localeConfig.key}\n${model}\n${localeConfig.translationInstructions}\n${content}`);
 }
 
 function replaceExtension(relativePath, nextExtension) {
 	return relativePath.replace(/\.[^./]+$/, nextExtension);
 }
 
-async function findExistingEnglishDocPath(relativePath) {
-	const preferredPath = path.join(generatedRoot, relativePath);
+async function findExistingLocalizedDocPath(localeConfig, relativePath) {
+	const preferredPath = path.join(localeConfig.root, relativePath);
 	if (await pathExists(preferredPath)) return preferredPath;
 
 	for (const extension of markdownExtensions) {
-		const candidatePath = path.join(generatedRoot, replaceExtension(relativePath, extension));
+		const candidatePath = path.join(localeConfig.root, replaceExtension(relativePath, extension));
 		if (candidatePath === preferredPath) continue;
 		if (await pathExists(candidatePath)) return candidatePath;
 	}
@@ -107,7 +150,7 @@ async function findExistingEnglishDocPath(relativePath) {
 async function* walkSourceFiles(currentDir = docsRoot) {
 	const entries = await fs.readdir(currentDir, { withFileTypes: true });
 	for (const entry of entries) {
-		if (currentDir === docsRoot && entry.name === generatedLocale) continue;
+		if (currentDir === docsRoot && generatedLocaleKeys.has(entry.name)) continue;
 		const fullPath = path.join(currentDir, entry.name);
 		if (entry.isDirectory()) {
 			yield* walkSourceFiles(fullPath);
@@ -274,7 +317,7 @@ function mergeTranslatedFrontmatter(sourceContent, translatedContent) {
 				...sourceFrontmatter,
 				...parseFrontmatterObject(translatedParts.frontmatter),
 			};
-		} catch (error) {
+		} catch {
 			const salvagedFrontmatter = parseLooseFrontmatterObject(translatedParts.frontmatter);
 			if (Object.keys(salvagedFrontmatter).length > 0) {
 				mergedFrontmatter = {
@@ -301,18 +344,18 @@ function rewriteRelativeModuleSpecifiers(relativePath, content) {
 	);
 }
 
-async function translateFile(relativePath, sourceContent) {
+async function translateFile(localeConfig, relativePath, sourceContent) {
 	const requestBody = {
 		model,
 		messages: [
 			{
 				role: 'system',
-				content: translationInstructions,
+				content: localeConfig.translationInstructions,
 			},
 			{
 				role: 'user',
 				content: [
-					'Translate this source file from Simplified Chinese to English.',
+					`Translate this source file from Simplified Chinese to ${localeConfig.languageName}.`,
 					`Source file: ${relativePath}`,
 					'Return the translated file content between these exact markers:',
 					'<<<TRANSLATED_CONTENT',
@@ -348,13 +391,10 @@ async function translateFile(relativePath, sourceContent) {
 			const responseJson = await response.json();
 			const textPayload = extractTextPayload(responseJson);
 			if (!textPayload) {
-				throw new Error(`Empty translation response for ${relativePath}`);
+				throw new Error(`Empty translation response for ${localeConfig.key}/${relativePath}`);
 			}
 
-			return normalizeTranslatedContent(
-				extractTranslatedContent(textPayload),
-				sourceContent
-			);
+			return normalizeTranslatedContent(extractTranslatedContent(textPayload), sourceContent);
 		} catch (error) {
 			lastError = error;
 		}
@@ -383,30 +423,24 @@ async function main() {
 		entries: {},
 	});
 
-	await ensureDir(generatedRoot);
+	for (const localeConfig of localeConfigs) {
+		await ensureDir(localeConfig.root);
+		await ensureDir(path.join(cacheFilesRoot, localeConfig.key));
+	}
 
 	const markdownFiles = [];
 	const assetFiles = [];
+	const sourceContents = new Map();
 
 	for await (const sourcePath of walkSourceFiles()) {
 		const relativePath = toPosixPath(path.relative(docsRoot, sourcePath));
 		const extension = path.extname(sourcePath).toLowerCase();
 		if (markdownExtensions.has(extension)) {
 			markdownFiles.push(relativePath);
+			sourceContents.set(relativePath, await fs.readFile(sourcePath, 'utf8'));
 		} else {
 			assetFiles.push(relativePath);
 		}
-	}
-
-	let preservedAssetCount = 0;
-	for (const relativePath of assetFiles) {
-		const sourcePath = path.join(docsRoot, relativePath);
-		const targetPath = path.join(generatedRoot, relativePath);
-		if (await pathExists(targetPath)) {
-			preservedAssetCount += 1;
-			continue;
-		}
-		await copyFileEnsured(sourcePath, targetPath);
 	}
 
 	const nextManifest = {
@@ -417,50 +451,80 @@ async function main() {
 		entries: {},
 	};
 
+	const summary = {
+		source_docs: markdownFiles.length,
+		mirrored_assets: assetFiles.length,
+		cache_dir: toPosixPath(path.relative(repoRoot, cacheRoot)),
+		model,
+		prompt_version: promptVersion,
+		locales: {},
+	};
+
 	const pendingTranslations = [];
-	let restoredCount = 0;
-	let preservedEnglishDocsCount = 0;
 
-	for (const relativePath of markdownFiles.sort()) {
-		const existingEnglishDocPath = await findExistingEnglishDocPath(relativePath);
-		if (existingEnglishDocPath) {
-			preservedEnglishDocsCount += 1;
-			continue;
-		}
-
-		const sourcePath = path.join(docsRoot, relativePath);
-		const targetPath = path.join(generatedRoot, relativePath);
-		const cachePath = path.join(cacheFilesRoot, relativePath);
-		const sourceContent = await fs.readFile(sourcePath, 'utf8');
-		const sourceHash = buildSourceHash(sourceContent);
-		const cachedEntry = cachedManifest.entries?.[relativePath];
-
-		nextManifest.entries[relativePath] = {
-			sourceHash,
-			targetPath: toPosixPath(path.relative(repoRoot, targetPath)),
-			cachePath: toPosixPath(path.relative(repoRoot, cachePath)),
-			updatedAt: cachedEntry?.updatedAt || nextManifest.updatedAt,
+	for (const localeConfig of localeConfigs) {
+		const localeSummary = {
+			preserved_assets: 0,
+			preserved_existing_docs: 0,
+			restored_from_cache: 0,
+			translated: 0,
 		};
 
-		if (cachedEntry?.sourceHash === sourceHash && (await pathExists(cachePath))) {
-			await copyFileEnsured(cachePath, targetPath);
-			restoredCount += 1;
-			continue;
+		for (const relativePath of assetFiles) {
+			const sourcePath = path.join(docsRoot, relativePath);
+			const targetPath = path.join(localeConfig.root, relativePath);
+			if (await pathExists(targetPath)) {
+				localeSummary.preserved_assets += 1;
+				continue;
+			}
+			await copyFileEnsured(sourcePath, targetPath);
 		}
 
-		pendingTranslations.push({
-			relativePath,
-			sourceContent,
-			targetPath,
-			cachePath,
-		});
+		for (const relativePath of markdownFiles.sort()) {
+			const existingLocalizedDocPath = await findExistingLocalizedDocPath(localeConfig, relativePath);
+			if (existingLocalizedDocPath) {
+				localeSummary.preserved_existing_docs += 1;
+				continue;
+			}
+
+			const sourceContent = sourceContents.get(relativePath);
+			const sourceHash = buildSourceHash(localeConfig, sourceContent);
+			const targetPath = path.join(localeConfig.root, relativePath);
+			const cachePath = path.join(cacheFilesRoot, localeConfig.key, relativePath);
+			const manifestKey = toPosixPath(path.posix.join(localeConfig.key, relativePath));
+			const cachedEntry = cachedManifest.entries?.[manifestKey];
+
+			nextManifest.entries[manifestKey] = {
+				sourceHash,
+				targetPath: toPosixPath(path.relative(repoRoot, targetPath)),
+				cachePath: toPosixPath(path.relative(repoRoot, cachePath)),
+				updatedAt: cachedEntry?.updatedAt || nextManifest.updatedAt,
+			};
+
+			if (cachedEntry?.sourceHash === sourceHash && (await pathExists(cachePath))) {
+				await copyFileEnsured(cachePath, targetPath);
+				localeSummary.restored_from_cache += 1;
+				continue;
+			}
+
+			pendingTranslations.push({
+				localeConfig,
+				relativePath,
+				sourceContent,
+				targetPath,
+				cachePath,
+				manifestKey,
+			});
+		}
+
+		summary.locales[localeConfig.key] = localeSummary;
 	}
 
 	if (pendingTranslations.length > 0 && !apiKey) {
 		throw new Error(
 			[
 				`Missing TRANSLATION_API_KEY. ${pendingTranslations.length} file(s) need translation:`,
-				...pendingTranslations.map((item) => `- ${item.relativePath}`),
+				...pendingTranslations.map((item) => `- ${item.localeConfig.key}/${item.relativePath}`),
 			].join('\n')
 		);
 	}
@@ -469,35 +533,22 @@ async function main() {
 		throw new Error('Missing TRANSLATION_MODEL.');
 	}
 
-	let translatedCount = 0;
 	for (const item of pendingTranslations) {
 		const translatedContent = rewriteRelativeModuleSpecifiers(
 			item.relativePath,
 			mergeTranslatedFrontmatter(
-			item.sourceContent,
-			await translateFile(item.relativePath, item.sourceContent)
+				item.sourceContent,
+				await translateFile(item.localeConfig, item.relativePath, item.sourceContent)
 			)
 		);
 		await writeFileEnsured(item.cachePath, translatedContent);
 		await writeFileEnsured(item.targetPath, translatedContent);
-		nextManifest.entries[item.relativePath].updatedAt = new Date().toISOString();
-		translatedCount += 1;
-		console.log(`Translated ${item.relativePath}`);
+		nextManifest.entries[item.manifestKey].updatedAt = new Date().toISOString();
+		summary.locales[item.localeConfig.key].translated += 1;
+		console.log(`Translated ${item.localeConfig.key}/${item.relativePath}`);
 	}
 
 	await writeFileEnsured(manifestPath, `${JSON.stringify(nextManifest, null, 2)}\n`);
-
-	const summary = {
-		source_docs: markdownFiles.length,
-		mirrored_assets: assetFiles.length,
-		preserved_assets: preservedAssetCount,
-		preserved_existing_english_docs: preservedEnglishDocsCount,
-		restored_from_cache: restoredCount,
-		translated: translatedCount,
-		cache_dir: toPosixPath(path.relative(repoRoot, cacheRoot)),
-		model,
-		prompt_version: promptVersion,
-	};
 
 	console.log('Translation summary:', JSON.stringify(summary));
 }

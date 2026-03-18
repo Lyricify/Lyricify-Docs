@@ -4,11 +4,15 @@
 
 		const getPreferredLocale = () => {
 			const saved = window.localStorage.getItem(storageKey);
-			if (saved === 'en' || saved === 'zh-CN') return saved;
+			if (saved === 'en' || saved === 'zh-CN' || saved === 'zh-Hant') return saved;
+			if (saved === 'zh-TW') return 'zh-Hant';
 
 			const languages = navigator.languages && navigator.languages.length > 0
 				? navigator.languages
 				: [navigator.language];
+			if (languages.some((lang) => ['zh-tw', 'zh-hk', 'zh-mo'].some((prefix) => lang.toLowerCase().startsWith(prefix)))) {
+				return 'zh-Hant';
+			}
 			return languages.some((lang) => lang.toLowerCase().startsWith('zh')) ? 'zh-CN' : 'en';
 		};
 
@@ -18,9 +22,15 @@
 		};
 
 		const preferredLocale = getPreferredLocale();
-		if (isRootPath() && preferredLocale === 'en') {
-			window.location.replace('/en/');
-			return;
+		if (isRootPath()) {
+			if (preferredLocale === 'en') {
+				window.location.replace('/en/');
+				return;
+			}
+			if (preferredLocale === 'zh-Hant') {
+				window.location.replace('/zh-hant/');
+				return;
+			}
 		}
 
 		const select = document.querySelector('starlight-lang-select select');
@@ -28,7 +38,12 @@
 			select.addEventListener('change', (event) => {
 				const target = event.currentTarget;
 				if (!(target instanceof HTMLSelectElement)) return;
-				const locale = target.value.startsWith('/en/') || target.value === '/en/' ? 'en' : 'zh-CN';
+				const locale =
+					target.value.startsWith('/en/') || target.value === '/en/'
+						? 'en'
+						: target.value.startsWith('/zh-hant/') || target.value === '/zh-hant/'
+							? 'zh-Hant'
+							: 'zh-CN';
 				window.localStorage.setItem(storageKey, locale);
 			});
 		}

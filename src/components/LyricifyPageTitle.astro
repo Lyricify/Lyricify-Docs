@@ -2,9 +2,16 @@
 import { Icon } from '@astrojs/starlight/components';
 
 const { starlightRoute, t } = Astro.locals;
-const showFallbackNotice = starlightRoute.isFallback && starlightRoute.lang.toLowerCase().startsWith('en');
-const showAutoTranslatedNotice =
-	Boolean(starlightRoute.entry.data.autoTranslated) && starlightRoute.lang.toLowerCase().startsWith('en');
+const lang = starlightRoute.lang.toLowerCase();
+const isTraditionalChinese = lang.startsWith('zh-hant');
+const isEnglish = lang.startsWith('en');
+const showFallbackNotice = starlightRoute.isFallback && starlightRoute.locale !== 'root';
+const showAutoTranslatedNotice = Boolean(starlightRoute.entry.data.autoTranslated);
+const autoTranslatedNoticeText = isEnglish
+	? 'This page was translated automatically from the Simplified Chinese source and may contain errors.'
+	: isTraditionalChinese
+		? '此頁內容由簡體中文來源自動翻譯，可能存在錯誤。'
+		: '此页内容由简体中文来源自动翻译，可能存在错误。';
 const PAGE_TITLE_ID = '_top';
 ---
 
@@ -12,7 +19,7 @@ const PAGE_TITLE_ID = '_top';
 	showAutoTranslatedNotice && (
 		<p class="auto-translation-banner" role="note">
 			<Icon name="notice" size="1.25rem" />
-			<span>This page was translated automatically from the Simplified Chinese source and may contain errors.</span>
+			<span>{autoTranslatedNoticeText}</span>
 		</p>
 	)
 }
