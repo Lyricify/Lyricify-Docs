@@ -9,7 +9,7 @@ description: 根据平台、播放器和使用需求选择合适的 Lyricify 版
 
 - 你在 Windows 上主要使用 Spotify：优先选择 [Lyricify 4](../lyricify-4/guide/)
 - 你在 Windows 上使用的是支持 SMTC 的其他播放器：优先选择 [Lyricify Lite](../lyricify-lite/guide/)
-- 你在 Android、iPhone、iPad、macOS 等设备上使用：优先选择 [Lyricify Mobile](../lyricify-mobile/guide/)
+- 你在 Android、iPhone、iPad、Mac 等设备上使用：优先选择 [Lyricify Mobile](../lyricify-mobile/guide/)
 
 ## 快速对比
 
