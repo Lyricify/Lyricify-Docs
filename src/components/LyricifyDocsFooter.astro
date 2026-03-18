@@ -11,7 +11,8 @@ const copyrightText = locale.toLowerCase().startsWith('en')
 	: `版权所有 © ${currentYear} WXRIW，保留所有权利`;
 const { editUrl, isFallback, entry } = Astro.locals.starlightRoute;
 const isSplashPage = entry.data.template === 'splash';
-const showCustomEditLink = Boolean(editUrl && !isFallback && !isSplashPage);
+const isAutoTranslatedPage = Boolean(entry.data.autoTranslated);
+const showCustomEditLink = Boolean(editUrl && !isFallback && !isSplashPage && !isAutoTranslatedPage);
 const editLinkText = locale.toLowerCase().startsWith('en')
 	? 'Edit this page on GitHub'
 	: '在 GitHub 上编辑此页';
