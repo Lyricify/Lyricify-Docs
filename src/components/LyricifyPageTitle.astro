@@ -3,8 +3,19 @@ import { Icon } from '@astrojs/starlight/components';
 
 const { starlightRoute, t } = Astro.locals;
 const showFallbackNotice = starlightRoute.isFallback && starlightRoute.lang.toLowerCase().startsWith('en');
+const showAutoTranslatedNotice =
+	Boolean(starlightRoute.entry.data.autoTranslated) && starlightRoute.lang.toLowerCase().startsWith('en');
 const PAGE_TITLE_ID = '_top';
 ---
+
+{
+	showAutoTranslatedNotice && (
+		<p class="auto-translation-banner" role="note">
+			<Icon name="notice" size="1.25rem" />
+			<span>This page was translated automatically from the Simplified Chinese source and may contain errors.</span>
+		</p>
+	)
+}
 
 {
 	showFallbackNotice && (
@@ -19,7 +30,8 @@ const PAGE_TITLE_ID = '_top';
 
 <style>
 	@layer starlight.core {
-		.fallback-banner {
+		.fallback-banner,
+		.auto-translation-banner {
 			--_main-width: calc(100vw - var(--sl-content-inline-start, 0rem));
 			--_content-width: min(
 				var(--sl-content-width),
@@ -46,7 +58,18 @@ const PAGE_TITLE_ID = '_top';
 			text-align: center;
 		}
 
-		.fallback-banner :global(svg) {
+		.fallback-banner {
+			background: #7a4a11;
+			color: var(--sl-color-white);
+		}
+
+		.auto-translation-banner {
+			background: #155c7a;
+			color: var(--sl-color-white);
+		}
+
+		.fallback-banner :global(svg),
+		.auto-translation-banner :global(svg) {
 			flex: 0 0 auto;
 			color: currentColor;
 		}
@@ -61,6 +84,11 @@ const PAGE_TITLE_ID = '_top';
 
 		:root[data-theme='light'] .fallback-banner {
 			background: color-mix(in srgb, var(--sl-color-orange) 86%, white);
+			color: var(--sl-color-gray-1);
+		}
+
+		:root[data-theme='light'] .auto-translation-banner {
+			background: color-mix(in srgb, var(--sl-color-accent) 22%, white);
 			color: var(--sl-color-gray-1);
 		}
 	}
