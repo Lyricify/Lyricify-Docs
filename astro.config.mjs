@@ -59,9 +59,39 @@ export default defineConfig({
 							},
 							slug: 'lyricify-4/guide',
 						},
-						'lyricify-4/basic',
-						'lyricify-4/advanced',
+						'lyricify-4/getting-started',
+						'lyricify-4/lyrics-and-track-management',
 						'lyricify-4/custom-api-client',
+						{
+							label: '设置与个性化',
+							translations: {
+								'zh-hant': '設定與個人化',
+								en: 'Settings & Personalization',
+							},
+							items: [
+								'lyricify-4/settings/global-shortcuts',
+								'lyricify-4/settings/fonts',
+								'lyricify-4/settings/custom-themes',
+								'lyricify-4/settings/i18n',
+								'lyricify-4/settings/custom-configs',
+							],
+						},
+						{
+							label: '工具与功能',
+							translations: {
+								'zh-hant': '工具與功能',
+								en: 'Tools & Features',
+							},
+							items: [
+								'lyricify-4/tools/availability-check',
+								'lyricify-4/tools/local-files',
+								'lyricify-4/tools/built-in-playback',
+								'lyricify-4/tools/backup-and-automation-center',
+								'lyricify-4/tools/settings-file',
+								'lyricify-4/tools/auto-start',
+								'lyricify-4/tools/store-shortcut',
+							],
+						},
 						{
 							label: '常见问题',
 							translations: {
@@ -69,7 +99,6 @@ export default defineConfig({
 								en: 'FAQ',
 							},
 							items: [
-								'lyricify-4/faq',
 								'lyricify-4/faq/store-vs-github',
 								'lyricify-4/faq/self-contained',
 								'lyricify-4/faq/play-button-no-response',
@@ -105,7 +134,6 @@ export default defineConfig({
 								en: 'Known Issues',
 							},
 							items: [
-								'lyricify-4/known-issues',
 								'lyricify-4/known-issues/apple-music-performance',
 								'lyricify-4/known-issues/render-thread-crash',
 							],
@@ -117,7 +145,6 @@ export default defineConfig({
 								en: 'Special Cases',
 							},
 							items: [
-								'lyricify-4/special-issues',
 								'lyricify-4/special-issues/mobile-auth',
 								'lyricify-4/special-issues/support-other-apps',
 								'lyricify-4/special-issues/server-blocked',

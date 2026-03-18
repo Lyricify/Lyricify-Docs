@@ -80,7 +80,7 @@ LRC 歌词的标准格式为：
    ```
 
 ### 制作工具
-推荐您使用下列工具来制作 LRC 歌词。
+推荐你使用下列工具来制作 LRC 歌词。
 - 歌词滚动姬 (https://lrc-maker.github.io/)
 - BesLyric (https://github.com/BesLyric-for-X/BesLyric)
 - BesLyric-for-X (https://github.com/Beslyric-for-X/Beslyric-for-X)
@@ -114,8 +114,8 @@ QRC (Lyricify 标准) 歌词的标准格式为：
    ```
 
 ### 制作工具
-不推荐您手动制作 QRC 歌词，因为手动打轴十分艰难，会让您无法坐和放宽，且精确度不高。  
-如果您仍想尝试自行制作 QRC 歌词，则推荐您使用下列工具。  
+不推荐你手动制作 QRC 歌词，因为手动打轴十分艰难，会让你无法坐和放宽，且精确度不高。  
+如果你仍想尝试自行制作 QRC 歌词，则推荐你使用下列工具。  
 - ALRC (https://github.com/kengwang/ALRC)
 - QRC Lyric Maker (https://github.com/BPTPW/qrc-Lyric-Maker)
 - Lyricify 逐字行创造器 (Lyricify 4 内嵌，不建议使用)
@@ -210,8 +210,8 @@ Lyricify Syllable 歌词的标准格式为：
 Lyricify Syllable 的注意参考 QRC (Lyricify 标准) 标准，这里不再重复。
 
 ### 制作工具
-不推荐您手动制作 Lyricify Syllable 歌词，因为手动打轴十分艰难，会让您无法坐和放宽，且精确度不高。  
-如果您仍想尝试自行制作 Lyricify Syllable 歌词，则推荐您使用下列工具。 
+不推荐你手动制作 Lyricify Syllable 歌词，因为手动打轴十分艰难，会让你无法坐和放宽，且精确度不高。  
+如果你仍想尝试自行制作 Lyricify Syllable 歌词，则推荐你使用下列工具。 
 - AMLL TTML Tool (fred913 分支优化版) (https://fred913.github.io/amll-ttml-tool/)
 
 ## Apple Syllable 格式规范
