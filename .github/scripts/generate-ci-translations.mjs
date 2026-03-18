@@ -21,7 +21,7 @@ const translationInstructions = [
 	'Output must be a complete translated file body in the same format as the source file.',
 	'Preserve markdown structure, frontmatter keys, admonition syntax, code fences, tables, HTML tags, JSX, imports, exports, identifiers, URLs, anchors, and relative paths.',
 	'Translate human-readable Chinese text into concise natural English.',
-	'Do not add commentary, notes, or code fences.',
+	'Do not add commentary, notes, or code fences outside the required output markers.',
 	'Do not translate file paths, import paths, image paths, URLs, slug-like strings, or code identifiers.',
 	'Keep formatting stable so repeated runs produce minimal diffs.',
 ].join(' ');
@@ -98,6 +98,61 @@ function normalizeTranslatedContent(content, sourceContent) {
 	return normalized;
 }
 
+function stripCodeFence(content) {
+	const trimmed = content.trim();
+	if (!trimmed.startsWith('```') || !trimmed.endsWith('```')) return trimmed;
+	return trimmed.replace(/^```[a-zA-Z0-9_-]*\n?/, '').replace(/\n?```$/, '').trim();
+}
+
+function extractMarkedContent(content) {
+	const startMarker = '<<<TRANSLATED_CONTENT';
+	const endMarker = '>>>END_TRANSLATED_CONTENT';
+	const startIndex = content.indexOf(startMarker);
+	if (startIndex === -1) return '';
+	const afterStart = content.indexOf('\n', startIndex);
+	if (afterStart === -1) return '';
+	const endIndex = content.indexOf(endMarker, afterStart + 1);
+	if (endIndex === -1) return '';
+	return content.slice(afterStart + 1, endIndex).trim();
+}
+
+function parseTranslatedJson(textPayload) {
+	const cleanedPayload = stripCodeFence(textPayload);
+	const candidates = [cleanedPayload];
+	const objectStart = cleanedPayload.indexOf('{');
+	const objectEnd = cleanedPayload.lastIndexOf('}');
+	if (objectStart !== -1 && objectEnd !== -1 && objectEnd > objectStart) {
+		candidates.push(cleanedPayload.slice(objectStart, objectEnd + 1));
+	}
+
+	for (const candidate of candidates) {
+		try {
+			const parsed = JSON.parse(candidate);
+			if (typeof parsed?.translated_content === 'string' && parsed.translated_content.trim()) {
+				return parsed.translated_content;
+			}
+		} catch {}
+	}
+
+	return '';
+}
+
+function extractTranslatedContent(textPayload) {
+	const markedContent = extractMarkedContent(textPayload);
+	if (markedContent) return markedContent;
+
+	const jsonContent = parseTranslatedJson(textPayload);
+	if (jsonContent) return jsonContent;
+
+	throw new Error(
+		[
+			'Invalid translation payload. Expected marked content or JSON object with "translated_content".',
+			'Received payload preview:',
+			textPayload.slice(0, 1000),
+		].join('\n')
+	);
+}
+
 function markAsAutoTranslated(content) {
 	const normalized = content.replace(/^\uFEFF/, '');
 	if (normalized.startsWith('---\n')) {
@@ -127,8 +182,12 @@ async function translateFile(relativePath, sourceContent) {
 				content: [
 					'Translate this source file from Simplified Chinese to English.',
 					`Source file: ${relativePath}`,
-					'Return exactly one JSON object with a single string field named "translated_content".',
-					'Do not wrap the JSON in Markdown code fences.',
+					'Return the translated file content between these exact markers:',
+					'<<<TRANSLATED_CONTENT',
+					'... translated file content here ...',
+					'>>>END_TRANSLATED_CONTENT',
+					'Do not output JSON unless you cannot follow the marker format.',
+					'Do not wrap the response in Markdown code fences.',
 					'Source content starts after the marker below.',
 					'<<<SOURCE_FILE',
 					sourceContent,
@@ -160,12 +219,10 @@ async function translateFile(relativePath, sourceContent) {
 				throw new Error(`Empty translation response for ${relativePath}`);
 			}
 
-			const parsed = JSON.parse(textPayload);
-			if (typeof parsed.translated_content !== 'string' || !parsed.translated_content.trim()) {
-				throw new Error(`Invalid translation payload for ${relativePath}`);
-			}
-
-			return normalizeTranslatedContent(parsed.translated_content, sourceContent);
+			return normalizeTranslatedContent(
+				extractTranslatedContent(textPayload),
+				sourceContent
+			);
 		} catch (error) {
 			lastError = error;
 		}
