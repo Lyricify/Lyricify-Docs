@@ -25,7 +25,7 @@ Lyricify 4 是适用于 Windows 的桌面歌词软件。首次使用建议先阅
 - [启动时提示错误](./faq/startup-error/)
 - [Lyricify 不显示歌词](./faq/no-playback-info/)
 - [切歌后反应迟钝](./faq/song-switch-lag/)
-- [过多请求 429 错误](./faq/error-429/)
+- [429 错误](./faq/error-429/)
 - [Apple Music 歌词界面卡顿](./faq/apple-music-performance/)
 - [无法导入歌词](./faq/cannot-upload-lyrics/)
 - 其它常见问题

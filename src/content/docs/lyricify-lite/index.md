@@ -3,11 +3,11 @@ title: Lyricify Lite 使用指南
 description: Lyricify Lite 使用指南。
 ---
 
-Lyricify Lite 适用于已接入 SMTC 的播放器和媒体应用。你可以在此查阅 App 支持列表、阅读基础功能和对应的常见问题。
+Lyricify Lite 适用于已接入 SMTC 的播放器和媒体应用。你可以在此先阅读快速开始，再查看 App 支持列表和对应的常见问题。
 
 ## 开始使用
+- [快速开始](./getting-started/)
 - [App 支持列表](./supported-apps/)
-- [基础功能与设置](./basic/)
 
 ## 常见问题
 - [Microsoft Store 版本与 GitHub 版本的区别](./faq/version-info/)

@@ -1,11 +1,11 @@
 ---
-title: Lyricify Lite 基础
-description: Lyricify Lite 基础。
+title: 快速开始
+description: 快速开始。
 ---
 
 ## Lyricify Lite 是什么
 
-Lyricify Lite 是 Lyricify 家族于 2024 年 12 月推出的新软件，它运行于 Windows 平台，仅保留了 Lyricify 4 的灵动词岛功能（并已在后期加入桌面歌词等功能），支持所有接入了 SMTC 的音乐播放器，包括 HyPlayer、LyricEase、Apple Music、QQ 音乐、网易云音乐 UWP、酷狗音乐、Foobar 2000、Groove Music 等诸多音乐软件。 
+Lyricify Lite 是 Lyricify 家族于 2024 年 12 月推出的新软件，它运行于 Windows 平台，仅保留了 Lyricify 4 的灵动词岛功能（并已在后期加入桌面歌词、任务栏歌词、多种全屏歌词等歌词界面），支持所有接入了 SMTC 的音乐播放器，包括 HyPlayer、LyricEase、Apple Music、QQ 音乐、网易云音乐 UWP、酷狗音乐、Foobar 2000、Groove Music 等诸多音乐软件。 
 
 ## Lyricify Lite 有哪些功能
 Lyricify Lite 目前有灵动词岛和桌面歌词功能，支持所有接入了 SMTC 的音乐播放器，支持单独调节设备延迟、app 延迟、歌词显示等设置。

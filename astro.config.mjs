@@ -112,7 +112,6 @@ export default defineConfig({
 								'lyricify-4/faq/buggy-apple',
 								'lyricify-4/faq/song-switch-lag',
 								'lyricify-4/faq/error-429',
-								'lyricify-4/faq/super-long-error-429',
 								'lyricify-4/faq/no-playback-info',
 								'lyricify-4/faq/media-session-not-connected',
 								'lyricify-4/faq/no-album-art',
@@ -162,8 +161,8 @@ export default defineConfig({
 							},
 							slug: 'lyricify-lite',
 						},
+						'lyricify-lite/getting-started',
 						'lyricify-lite/supported-apps',
-						'lyricify-lite/basic',
 						{
 							label: '常见问题',
 							translations: {
@@ -214,7 +213,25 @@ export default defineConfig({
 						'lyricify-mobile/installation',
 						'lyricify-mobile/ios-ipa-guide',
 						'lyricify-mobile/custom-api-client',
-						'lyricify-mobile/troubleshooting',
+						{
+							label: '常见问题',
+							translations: {
+								'zh-hant': '常見問題',
+								en: 'FAQ',
+							},
+							items: [
+								'lyricify-mobile/faq/slow-track-switch',
+								'lyricify-mobile/faq/error-429',
+								'lyricify-mobile/faq/no-playback-info',
+								'lyricify-mobile/faq/import-lyrics',
+								'lyricify-mobile/faq/no-lyrics-found',
+								'lyricify-mobile/faq/lyrics-mismatch-between-devices',
+								'lyricify-mobile/faq/no-translation',
+								'lyricify-mobile/faq/inaccurate-timeline',
+								'lyricify-mobile/faq/ios-app-store',
+								'lyricify-mobile/faq/other-issues',
+							],
+						},
 					],
 				},
 				{
