@@ -3,7 +3,7 @@ title: Lyricify 4 使用指南
 description: Lyricify 4 使用指南。
 ---
 
-Lyricify 4 是适用于 Windows 的桌面歌词软件。首次使用建议先阅读基础功能与进阶功能页面，遇到问题再从常见问题中查找对应条目。
+Lyricify 4 是专为 Spotify 打造的，运行于 Windows 平台的歌词软件。首次使用建议先阅读基础功能与进阶功能页面，遇到问题再从常见问题中查找对应条目。
 
 ## 开始使用
 - [快速开始](./getting-started/)
