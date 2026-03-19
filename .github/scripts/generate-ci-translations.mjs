@@ -10,7 +10,7 @@ const cacheFilesRoot = path.join(cacheRoot, 'files');
 const manifestPath = path.join(cacheRoot, 'manifest.json');
 
 const markdownExtensions = new Set(['.md', '.mdx']);
-const promptVersion = '2026-03-18-v6';
+const promptVersion = '2026-03-18-v7';
 const model = process.env.TRANSLATION_MODEL;
 const apiBaseUrl = (process.env.TRANSLATION_BASE_URL || 'https://api.openai.com/v1').replace(/\/$/, '');
 const apiKey = process.env.TRANSLATION_API_KEY;
@@ -67,6 +67,7 @@ const localeConfigs = [
 		terminologyGlossary: [
 			'Use the following canonical Traditional Chinese terms and casing for Lyricify-specific terms whenever they appear in the Simplified Chinese source:',
 			'Lyricify => Lyricify',
+			'Lyricify Docs => Lyricify Docs',
 			'Lyricify 4 => Lyricify 4',
 			'Lyricify Lite => Lyricify Lite',
 			'Lyricify Mobile => Lyricify Mobile',
