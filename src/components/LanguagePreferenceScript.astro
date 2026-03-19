@@ -1,6 +1,13 @@
 <script is:inline>
 	(() => {
 		const storageKey = 'lyricify-docs-locale';
+		const listenerKey = '__lyricifyDocsLanguagePreferenceBound';
+
+		const getLocaleFromHref = (href) => {
+			if (href.startsWith('/en/') || href === '/en/' || href === '/en') return 'en';
+			if (href.startsWith('/zh-hant/') || href === '/zh-hant/' || href === '/zh-hant') return 'zh-Hant';
+			return 'zh-CN';
+		};
 
 		const getPreferredLocale = () => {
 			const saved = window.localStorage.getItem(storageKey);
@@ -33,19 +40,14 @@
 			}
 		}
 
-		const select = document.querySelector('starlight-lang-select select');
-		if (select instanceof HTMLSelectElement) {
-			select.addEventListener('change', (event) => {
-				const target = event.currentTarget;
+		if (!window[listenerKey]) {
+			document.addEventListener('change', (event) => {
+				const target = event.target;
 				if (!(target instanceof HTMLSelectElement)) return;
-				const locale =
-					target.value.startsWith('/en/') || target.value === '/en/'
-						? 'en'
-						: target.value.startsWith('/zh-hant/') || target.value === '/zh-hant/'
-							? 'zh-Hant'
-							: 'zh-CN';
-				window.localStorage.setItem(storageKey, locale);
+				if (!target.closest('starlight-lang-select')) return;
+				window.localStorage.setItem(storageKey, getLocaleFromHref(target.value));
 			});
+			window[listenerKey] = true;
 		}
 	})();
 </script>
