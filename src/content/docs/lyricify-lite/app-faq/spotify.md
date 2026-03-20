@@ -1,6 +1,5 @@
 ---
 title: Spotify
-description: Lyricify Lite 常见问题（逐应用）。
 ---
 
 ## Spotify 用户应使用 Lyricify 4

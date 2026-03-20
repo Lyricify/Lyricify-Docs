@@ -1,6 +1,5 @@
 ---
 title: 提示没有找到歌词
-description: Lyricify Mobile 常见问题。
 ---
 
 没搜到歌词。  

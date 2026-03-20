@@ -1,6 +1,5 @@
 ---
 title: Microsoft Store 版创建快捷方式
-description: Lyricify Lite 常见问题。
 ---
 
 1. 打开 `开始菜单`，点击右上角的 `所有应用`。

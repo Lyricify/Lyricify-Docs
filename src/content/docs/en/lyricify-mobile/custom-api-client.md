@@ -1,6 +1,5 @@
 ---
 title: Custom Spotify API Client Configuration Tutorial
-description: Custom Spotify API Client Configuration Tutorial.
 ---
 
 :::caution[Note]

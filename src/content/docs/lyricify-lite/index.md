@@ -1,6 +1,5 @@
 ---
 title: Lyricify Lite 使用指南
-description: Lyricify Lite 使用指南。
 ---
 
 Lyricify Lite 适用于已接入 SMTC 的播放器和媒体应用。你可以在此先阅读快速开始，再查看 App 支持列表和对应的常见问题。

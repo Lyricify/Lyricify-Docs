@@ -1,6 +1,5 @@
 ---
 title: 启动 Lyricify 时提示错误
-description: 启动 Lyricify 时提示错误。
 ---
 
 启动 Lyricify 时提示出错（超时错误或 Http 错误），并自动关闭。

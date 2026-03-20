@@ -1,6 +1,5 @@
 ---
 title: 自动更新
-description: 自动更新。
 ---
 
 Lyricify 4 支持自动更新，其策略如下。

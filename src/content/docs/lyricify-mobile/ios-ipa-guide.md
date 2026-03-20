@@ -1,6 +1,5 @@
 ---
 title: Apple 设备自签教程
-description: Apple 设备自签教程。
 ---
 
 By [Tiger](https://github.com/mcuTiger)

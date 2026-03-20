@@ -1,6 +1,5 @@
 ---
 title: 其它问题
-description: Lyricify Mobile 常见问题。
 ---
 
 ## 没有逐字歌词

@@ -1,6 +1,5 @@
 ---
 title: Lyricify 无法获取当前播放信息
-description: Lyricify Mobile 常见问题。
 ---
 
 Lyricify 没有显示当前正在播放的歌曲。

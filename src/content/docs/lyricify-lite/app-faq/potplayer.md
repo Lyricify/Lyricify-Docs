@@ -1,6 +1,5 @@
 ---
 title: PotPlayer
-description: Lyricify Lite 常见问题（逐应用）。
 ---
 
 ## 无法检测到 PotPlayer

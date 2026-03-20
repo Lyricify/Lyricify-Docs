@@ -1,6 +1,5 @@
 ---
 title: iOS 版是否会上架 App Store
-description: Lyricify Mobile 常见问题。
 ---
 
 使用自签方式安装非常麻烦，而上架 App Store 后则会方便很多，为什么不上架呢？

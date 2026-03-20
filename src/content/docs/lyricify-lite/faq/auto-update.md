@@ -1,6 +1,5 @@
 ---
 title: 自动更新
-description: Lyricify Lite 常见问题。
 ---
 
 Lyricify Lite 支持自动更新，其策略如下。

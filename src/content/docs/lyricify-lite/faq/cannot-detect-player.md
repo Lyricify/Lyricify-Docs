@@ -1,6 +1,5 @@
 ---
 title: 无法检测到播放器
-description: Lyricify Lite 常见问题。
 ---
 
 Lyricify Lite 无法检测到你正在使用的音乐软件的播放状态。

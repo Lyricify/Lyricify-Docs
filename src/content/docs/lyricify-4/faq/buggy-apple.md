@@ -1,6 +1,5 @@
 ---
 title: Buggy Apple 是什么
-description: Buggy Apple 是什么。
 ---
 
 Buggy Apple (漏洞百出的 Apple) 是 Lyricify 4 的 Apple Music 歌词界面中的一个特殊功能。  

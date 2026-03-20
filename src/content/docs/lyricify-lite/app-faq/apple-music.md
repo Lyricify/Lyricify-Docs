@@ -1,6 +1,5 @@
 ---
 title: Apple Music
-description: Lyricify Lite 常见问题（逐应用）。
 ---
 
 ## Apple Music 时间轴不稳定

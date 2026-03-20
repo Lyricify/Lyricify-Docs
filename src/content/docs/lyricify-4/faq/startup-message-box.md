@@ -1,6 +1,5 @@
 ---
 title: 启动 Lyricify 后弹出消息框
-description: 启动 Lyricify 后弹出消息框。
 ---
 
 **注意：** 本问题仅在 4.2.11 或更早版本中出现。

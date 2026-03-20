@@ -1,6 +1,5 @@
 ---
 title: Lyricify Mobile 使用指南
-description: Lyricify Mobile 使用指南。
 ---
 
 Lyricify Mobile 适用于 Android、iPhone、iPad 和 Mac，也提供测试性质的 Windows 版本。首次使用建议先查看安装与使用，再根据具体设备阅读对应页面。

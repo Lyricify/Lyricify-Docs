@@ -1,6 +1,5 @@
 ---
 title: 自定义 Spotify API Client 配置教程
-description: 自定义 Spotify API Client 配置教程。
 ---
 
 :::caution[注意]

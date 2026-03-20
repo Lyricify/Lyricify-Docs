@@ -1,6 +1,5 @@
 ---
 title: Lyricify 无法获取当前播放信息
-description: Lyricify 无法获取当前播放信息。
 ---
 
 Lyricify 没有显示当前正在播放的歌曲。

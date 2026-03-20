@@ -1,6 +1,5 @@
 ---
 title: 429 错误
-description: Lyricify Mobile 常见问题。
 ---
 
 ## 总是提示出现 429 错误

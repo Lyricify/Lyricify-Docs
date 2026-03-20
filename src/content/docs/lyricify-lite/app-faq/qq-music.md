@@ -1,6 +1,5 @@
 ---
 title: QQ 音乐
-description: Lyricify Lite 常见问题（逐应用）。
 ---
 
 ## 实现曲目精确匹配

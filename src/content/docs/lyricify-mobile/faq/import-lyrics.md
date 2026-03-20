@@ -1,6 +1,5 @@
 ---
 title: 如何导入歌词
-description: Lyricify Mobile 常见问题。
 ---
 
 提示“没有找到歌词，你可以在 Lyricify 4 中导入歌词”。

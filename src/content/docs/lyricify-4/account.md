@@ -1,6 +1,5 @@
 ---
 title: Lyricify 账户
-description: Lyricify 账户。
 ---
 
 Lyricify 账户是你获取、标记、上传歌词时的必要凭证。只有当你有 Lyricify 账户，且状态正常时，才可以进行上传歌词等服务器操作。

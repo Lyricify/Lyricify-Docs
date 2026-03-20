@@ -1,6 +1,5 @@
 ---
 title: 配置文件迁移
-description: Lyricify Lite 常见问题。
 ---
 
 如果你原先在另一台设备上使用 Lyricify Lite，现在想要将配置文件迁移至新的设备，则可通过以下方法实现。

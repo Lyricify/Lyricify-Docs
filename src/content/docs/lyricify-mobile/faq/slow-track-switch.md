@@ -1,6 +1,5 @@
 ---
 title: 切歌后反应迟钝
-description: Lyricify Mobile 常见问题。
 ---
 
 切歌后 Lyricify 需要过较长时间才能显示新的歌曲信息。  

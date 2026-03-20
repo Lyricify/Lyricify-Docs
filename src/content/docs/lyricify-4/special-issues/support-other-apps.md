@@ -1,6 +1,5 @@
 ---
 title: 是否会支持为其它软件提供歌词
-description: 是否会支持为其它软件提供歌词。
 ---
 
 如 Apple Music、iTunes、QQ 音乐、网易云音乐、Music Center、YesPlayMusic 等。

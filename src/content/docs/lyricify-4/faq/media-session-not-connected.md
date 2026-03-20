@@ -1,6 +1,5 @@
 ---
 title: Media Session 未连接
-description: Media Session 未连接。
 ---
 
 请检查 Spotify 中 `使用媒体键时显示桌面叠加` 是否开启。

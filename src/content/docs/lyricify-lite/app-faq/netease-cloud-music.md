@@ -1,6 +1,5 @@
 ---
 title: 网易云音乐
-description: Lyricify Lite 常见问题（逐应用）。
 ---
 
 ## 无法检测到网易云音乐

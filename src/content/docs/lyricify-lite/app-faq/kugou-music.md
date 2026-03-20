@@ -1,6 +1,5 @@
 ---
 title: 酷狗音乐
-description: Lyricify Lite 常见问题（逐应用）。
 ---
 
 ## 无法检测到酷狗音乐

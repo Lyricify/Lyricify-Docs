@@ -1,6 +1,5 @@
 ---
 title: 歌词比歌曲快或慢
-description: Lyricify Mobile 常见问题。
 ---
 
 Lyricify Mobile 中显示的歌词比歌曲快了或者慢了。

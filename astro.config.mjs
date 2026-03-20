@@ -106,7 +106,7 @@ export default defineConfig({
 								'lyricify-4/faq/cannot-upload-lyrics',
 								'lyricify-4/faq/account-restricted',
 								'lyricify-4/faq/open-spotify-missing',
-								'lyricify-4/faq/floating-lyrics-disappear',
+								'lyricify-4/faq/desktop-lyrics-disappear',
 								'lyricify-4/faq/desktop-font-size',
 								'lyricify-4/faq/obs-capture',
 								'lyricify-4/faq/buggy-apple',

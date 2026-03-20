@@ -1,6 +1,5 @@
 ---
 title: 打开 Lyricify 的同时打开 Spotify 功能不见了
-description: 打开 Lyricify 的同时打开 Spotify 功能不见了。
 ---
 
 此功能在 Lyricify 3 中仅为测试功能，目前没有找到完美的实现方式，故 Lyricify 4 取消了该功能。

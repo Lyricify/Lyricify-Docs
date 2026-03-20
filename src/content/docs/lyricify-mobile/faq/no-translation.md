@@ -1,6 +1,5 @@
 ---
 title: 歌词没有翻译
-description: Lyricify Mobile 常见问题。
 ---
 
 歌词对的啊，为啥没翻译啊。
