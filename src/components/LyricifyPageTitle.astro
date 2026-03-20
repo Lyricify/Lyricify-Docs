@@ -8,10 +8,10 @@ const isEnglish = lang.startsWith('en');
 const showFallbackNotice = starlightRoute.isFallback && starlightRoute.locale !== 'root';
 const showAutoTranslatedNotice = Boolean(starlightRoute.entry.data.autoTranslated);
 const autoTranslatedNoticeText = isEnglish
-	? 'This page was translated automatically from the Simplified Chinese source and may contain errors.'
+	? 'This page was machine-translated from the Simplified Chinese and may contain errors.'
 	: isTraditionalChinese
-		? '此頁內容由簡體中文來源自動翻譯，可能存在錯誤。'
-		: '此页内容由简体中文来源自动翻译，可能存在错误。';
+		? '此頁內容由簡體中文經機器翻譯生成，可能存在錯誤。'
+		: '此页内容由简体中文经机器翻译生成，可能存在错误。';
 const PAGE_TITLE_ID = '_top';
 ---
 
