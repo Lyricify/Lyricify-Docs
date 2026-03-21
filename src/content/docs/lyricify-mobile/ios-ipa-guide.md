@@ -21,9 +21,9 @@ By [Tiger](https://github.com/mcuTiger), [WingChunWong](https://github.com/WingC
 - **安装包**：从[Github Release](https://github.com/WXRIW/Lyricify-App/releases)下载 IPA 安装包。
 - 对于 Windows 用户，必须安装 [iTunes](https://www.apple.com.cn/itunes/)。
 
-> [!IMPORTANT]
-> iTunes 需要为非 Microsoft Store 版本，如果安装了 Microsoft Store 版本，请卸载并从官网下载。
-
+:::tip
+iTunes 需要为非 Microsoft Store 版本，如果安装了 Microsoft Store 版本，请卸载并从官网下载。
+:::
 ## 方法一：使用 Sideloadly 安装
 
 ### 步骤
