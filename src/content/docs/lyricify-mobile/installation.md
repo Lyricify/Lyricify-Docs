@@ -10,8 +10,8 @@ description: Lyricify Mobile 的安装与登录说明。
 下载 `.apk` 安装包，打开后点击安装即可。  
 
 ## 在 iPhone 或 iPad 上安装
-目前 Lyricify Mobile 并未上架 App Store，具体原因可参见[iOS 版是否会上架 App Store](./faq/ios-app-store/)。  
-你可以在下载 `.ipa` 安装包后，采用自签的方式安装，具体步骤可参见 [Apple 设备自签教程](./ios-ipa-guide/)。   
+目前 Lyricify Mobile 并未上架 App Store，具体原因可参见[iOS 版是否会上架 App Store](../faq/ios-app-store/)。  
+你可以在下载 `.ipa` 安装包后，采用自签的方式安装，具体步骤可参见 [Apple 设备自签教程](../ios-ipa-guide/)。   
 
 ## 在 Mac 上安装
 直接下载 `macOS.pkg` 安装即可。（推荐）  

@@ -2,12 +2,16 @@
 title: Apple 设备自签教程
 ---
 
+Lyricify Mobile 没有在 App Store 中上架，故需要用户通过自签安装。
+
+## 使用 Sideloadly 进行自签安装
+
 By [Tiger](https://github.com/mcuTiger)
 
-## 前置准备
+### 前置准备
 Lyricify Mobile iOS.ipa (在 GitHub Releases 中获得最新版本)、[Sideloadly](https://sideloadly.io/#download)、iTunes、iCloud（iTunes、iCloud 可能需要非 Microsoft Store 版本）
 
-## 步骤
+### 步骤
 1. 打开 Sideloadly，使用数据线将 iPhone / iPad 连接到你的 PC；点击 IPA 图标，载入 .ipa 文件。  
 ![Sideloadly App main interface](pic/image01.png)  
   注意事项：
@@ -20,15 +24,15 @@ Lyricify Mobile iOS.ipa (在 GitHub Releases 中获得最新版本)、[Sideloadl
    然后打开你设备的开发者模式，然后重启你的 Apple 设备，并在开机后确认开启开发者模式。  
 ![Enable Developer Mode](pic/image04.png)
 
-## 特别注意事项
+### 特别注意事项
 如果在签名过程中报错（卡在步骤 2），请尝试以下方法：
 1. 关掉 iTunes，从任务管理器关闭；
 2. 进到 C:\ProgramData\Apple Computer\iTunes 文件夹；
 3. 将 adi 文件夹更名为 adi.bak 或者直接删掉；
 4. 重新打开软件进行签名即可。
 
-## 其他注意事项
+### 其他注意事项
 此方法只能解锁 7 天；但在 Sideloadly 运行时，将 Apple 设备接上你的 PC 后，App 期限将自动刷新。
 
-## 隐私提示
+### 隐私提示
 此教程不保证你的账号安全，如果按照此教程进行 App 自签造成了不可预估的安全后果，则与该教程无关，敏感信息的输入和敏感操作是你自己独立完成的。

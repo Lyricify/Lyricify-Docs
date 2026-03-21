@@ -6,14 +6,13 @@ Lyricify 4 是专为 Spotify 打造的，运行于 Windows 平台的歌词软件
 
 ## 开始使用
 - [快速开始](./getting-started/)
-- [歌词与曲目管理](./lyrics-and-track-management/)
 - [自定义 API Client](./custom-api-client/)
+- [歌词与曲目管理](./lyrics-and-track-management/)
 - [账户与相关问题](./account/)
 
 ## 常用功能
 - [Microsoft Store 版本与 GitHub 版本的区别](./faq/version-info/)
 - [Spotify Premium 在 Lyricify 中的独占功能](./getting-started/#spotify-premium-独占功能)
-- [自定义 API Client](./custom-api-client/)
 - [歌词导入与管理](./lyrics-and-track-management/)
 - [全局快捷键](./settings/global-shortcuts/)
 - [曲库可用性查询](./tools/availability-check/)
