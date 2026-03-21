@@ -29,7 +29,7 @@ const localeConfigs = [
 		languageName: 'English',
 		additionalInstructions: [
 			'You translate Simplified Chinese Astro/Starlight documentation into concise natural English for CI builds.',
-			'When translating the common noun “歌词”, prefer “lyrics” instead of singular “lyric” in UI labels, headings, and feature names unless the source clearly refers to one lyric line or one lyric file.',
+			'When translating the common noun “歌词”, prefer “lyrics” instead of singular “lyric” in UI labels, headings, and feature names.',
 		],
 		terminologyGlossary: [
 			'Use the following canonical translations and casing for Lyricify-specific terms whenever they appear in the Simplified Chinese source:',
@@ -54,6 +54,7 @@ const localeConfigs = [
 			'Apple Music 时间轴稳定器 => Apple Music Timeline Stabilizer',
 			'汽水音乐 => Soda Music',
 			'中国大陆 => Chinese Mainland',
+			'Apple 账户 => Apple Account',
 		],
 	}),
 	createLocaleConfig({
