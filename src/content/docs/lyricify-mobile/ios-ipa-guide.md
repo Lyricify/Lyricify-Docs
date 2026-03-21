@@ -2,7 +2,7 @@
 title: Apple 设备自签教程
 ---
 
-By [Tiger](https://github.com/mcuTiger)
+By [Tiger](https://github.com/mcuTiger), [WingChunWong](https://github.com/WingChunWong)
 
 # iOS 安装教程
 
