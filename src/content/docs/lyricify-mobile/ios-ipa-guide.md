@@ -10,14 +10,14 @@ By [Tiger](https://github.com/mcuTiger), [WingChunWong](https://github.com/WingC
 
 这两种方法均利用了 Apple 提供的开发者签名功能。对于未成为 Apple Developer Program 会员的用户，存在以下限制：
 - 应用签名有效期为 7 天，到期后需重新续签，否则应用将无法打开。
-- 单个 Apple ID 最多同时安装 3 个侧载应用。
+- 单个 Apple Account 最多同时安装 3 个侧载应用。
 
 ## 准备工作
 
 无论选择哪种方法，在开始前请确保做好以下准备：
 
 - **硬件**：一台 macOS 或 Windows 电脑、一台 iPhone 或 iPad，请使用一根稳定的数据线，否则可能无法正确连接设备。
-- **账号**：一个使用邮箱注册的 [Apple ID](https://support.apple.com/zh-cn/apple-account)。
+- **账号**：一个使用邮箱注册的 [Apple Account](https://support.apple.com/zh-cn/apple-account)。
 - **安装包**：从[Github Release](https://github.com/WXRIW/Lyricify-App/releases)下载 IPA 安装包。
 - 对于 Windows 用户，必须安装 [iTunes](https://www.apple.com.cn/itunes/)。
 
@@ -32,7 +32,7 @@ iTunes 需要为非 Microsoft Store 版本，如果安装了 Microsoft Store 版
   注意事项：
     1. 第一次连接时，你的 iPhone / iPad 会提示是否信任此设备，选择信任即可；
     2. 连接成功后 iDevice 处会显示你的设备名称。
-2. 在 Apple ID 处填写你的 Apple ID 信息；点击 Start 后，填写你的 Apple ID 密码进行验证（登录期间可能会弹出双重验证），签名成功后，程序会将 Lyricify Mobile 安装到你的设备上。  
+2. 在 Apple Account 处填写你的 Apple Account 信息；点击 Start 后，填写你的 Apple Account 密码进行验证（登录期间可能会弹出双重验证），签名成功后，程序会将 Lyricify Mobile 安装到你的设备上。  
 ![Lyricify Mobile installed successfully](pic/image02.png)
 3. 信任开发者 App；  
 ![Trust Developer App](pic/image03.png)
@@ -71,7 +71,7 @@ iTunes 需要为非 Microsoft Store 版本，如果安装了 Microsoft Store 版
 5. 信任 LiveContainer。
     1. 打开 iOS `设置` -> `通用`。
     2. 向下滑动选择 `VPN 与设备管理`（旧版本系统可能显示为“描述文件与设备管理”）。
-    3. 在 `开发者 APP` 下方点击你的 Apple ID。
+    3. 在 `开发者 APP` 下方点击你的 Apple Account。
     4. 点击 **“信任 [你的邮箱]”** 并确认。
 
 ### 4. 配置 LiveContainer & SideStore
@@ -98,7 +98,7 @@ iTunes 需要为非 Microsoft Store 版本，如果安装了 Microsoft Store 版
 **解决方法**：
 1.  打开 `设置` -> `通用`。
 2.  向下滑动选择 `VPN 与设备管理`（旧版本系统可能显示为“描述文件与设备管理”）。
-3.  在 `开发者 APP` 下方点击你的 Apple ID。
+3.  在 `开发者 APP` 下方点击你的 Apple Account。
 4.  点击 **“信任 [你的邮箱]”** 并确认。
 
 ## 隐私提示
