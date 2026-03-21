@@ -26,10 +26,7 @@ By [Tiger](https://github.com/mcuTiger), [WingChunWong](https://github.com/WingC
 
 ## 方法一：使用 Sideloadly 安装
 
-### 前置准备
-Lyricify Mobile iOS.ipa (在 GitHub Releases 中获得最新版本)、[Sideloadly](https://sideloadly.io/#download)、iTunes、iCloud（iTunes、iCloud 可能需要非 Microsoft Store 版本）
-
-## 步骤
+### 步骤
 1. 打开 Sideloadly，使用数据线将 iPhone / iPad 连接到你的 PC；点击 IPA 图标，载入 .ipa 文件。  
 ![Sideloadly App main interface](pic/image01.png)  
   注意事项：
@@ -42,14 +39,14 @@ Lyricify Mobile iOS.ipa (在 GitHub Releases 中获得最新版本)、[Sideloadl
    然后打开你设备的开发者模式，然后重启你的 Apple 设备，并在开机后确认开启开发者模式。  
 ![Enable Developer Mode](pic/image04.png)
 
-## 特别注意事项
+### 特别注意事项
 如果在签名过程中报错（卡在步骤 2），请尝试以下方法：
 1. 关掉 iTunes，从任务管理器关闭；
 2. 进到 C:\ProgramData\Apple Computer\iTunes 文件夹；
 3. 将 adi 文件夹更名为 adi.bak 或者直接删掉；
 4. 重新打开软件进行签名即可。
 
-### 其他注意事项
+#### 其他注意事项
 此方法只能解锁 7 天；Start 按钮左侧的“刷新图标”建议保持开启状态（默认即开启）。这允许设备在同一 Wi-Fi 环境下每 7 天自动续签。
 
 ## 使用 LiveContainer+SideStore 安装
