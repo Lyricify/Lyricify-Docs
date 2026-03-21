@@ -36,7 +36,7 @@ export default defineConfig({
 			editLink: {
 				baseUrl: 'https://github.com/Lyricify/Lyricify-Docs/edit/main/',
 			},
-			tableOfContents: false,
+			tableOfContents: true,
 			customCss: ['./src/styles/starlight.css'],
 			components: {
 				Header: './src/components/LyricifyHeader.astro',
