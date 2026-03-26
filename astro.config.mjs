@@ -102,6 +102,7 @@ export default defineConfig({
 								'lyricify-4/faq/no-lyrics-from-server',
 								'lyricify-4/faq/auth-no-response',
 								'lyricify-4/faq/startup-error',
+								'lyricify-4/faq/non-premium-custom-client',
 								'lyricify-4/faq/startup-message-box',
 								'lyricify-4/faq/cannot-upload-lyrics',
 								'lyricify-4/faq/account-restricted',

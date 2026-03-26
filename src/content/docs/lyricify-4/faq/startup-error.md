@@ -16,3 +16,11 @@ api.spotify.com
 如果可以连通，但仍然无法启动 Lyricify，请继续更换你的网络连接或服务提供商，直到可以连通为止。  
 如果你在中国大陆地区，且没有使用代理，则可以尝试开启代理后再试。  
 Lyricify 可以保证的是，Lyricify 本身没有问题，本问题为用户侧网络问题。
+
+:::caution[注意]
+对于以下报错内容：
+> 出了一些问题，请检查你的互联网连接或联系开发者  
+> Lyricify 将被关闭
+
+如果你使用的是 4.3.48 或更早的版本，配置了自定义 API Client，且当前账号没有 Spotify Premium 订阅，可参考：[非 Spotify Premium 用户启动 Lyricify 4 时报错](./non-premium-custom-client/)。
+:::
