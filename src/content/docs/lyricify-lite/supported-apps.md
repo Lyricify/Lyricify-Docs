@@ -18,6 +18,7 @@ description: Lyricify Lite 支持的 App 列表。
 | 网易云音乐 UWP | 无时间轴信息 | 较好 |  |
 | 酷狗音乐 | 无时间轴信息 | 较好 |  |
 | 汽水音乐 | 完美 | 较好 |  |
+| FocalSonic | 完美 | 较好 | 可实现完美匹配 |
 | Media Player | 时间轴完美；曲目信息取决于具体曲目 | 一般，取决于具体文件 | 原 Groove Music |
 | Foobar 2000 | 无时间轴信息；曲目信息取决于具体曲目 | 一般，取决于具体文件 | 时间轴可由[插件](https://github.com/ungive/foo_mediacontrol)提供 |
 | PotPlayer | 时间轴完美；曲目信息取决于具体文件名 | 较差，取决于文件名 |  |
@@ -25,6 +26,7 @@ description: Lyricify Lite 支持的 App 列表。
 | Salt Player for Windows | 时间轴完美；曲目信息取决于具体曲目 |  一般，取决于具体文件 |  |
 | LX Music | 时间轴完美；曲目信息取决于具体曲目 |  一般，取决于具体文件 |  |
 | MusicPlayer2 | 时间轴完美；曲目信息取决于具体曲目 |  一般，取决于具体文件 |  |
+| BetterLyrics | 时间轴完美；曲目信息取决于具体曲目 |  一般，取决于具体文件 |  |
 | Google Chrome | 时间轴较好；曲目信息取决于具体播放内容 | 一般，取决于具体内容 | 默认不启用 |
 | Microsoft Edge | 时间轴较好；曲目信息取决于具体播放内容 | 一般，取决于具体内容 | 默认不启用 |
 
