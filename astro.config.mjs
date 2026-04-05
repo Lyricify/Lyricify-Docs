@@ -173,6 +173,7 @@ export default defineConfig({
 							items: [
 								'lyricify-lite/faq/version-info',
 								'lyricify-lite/faq/cannot-detect-player',
+								'lyricify-lite/faq/smtc-unavailable',
 								'lyricify-lite/faq/store-shortcut',
 								'lyricify-lite/faq/desktop-lyrics-disappear',
 								'lyricify-lite/faq/desktop-lyrics-font-size',

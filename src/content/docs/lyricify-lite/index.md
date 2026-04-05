@@ -11,9 +11,11 @@ Lyricify Lite 适用于已接入 SMTC 的播放器和媒体应用。你可以在
 ## 常见问题
 - [Microsoft Store 版本与 GitHub 版本的区别](./faq/version-info/)
 - [无法检测到播放器](./faq/cannot-detect-player/)
+- [SMTC 不可用](./faq/smtc-unavailable/)
 - [Microsoft Store 版创建快捷方式](./faq/store-shortcut/)
 - [配置文件迁移](./faq/config-migration/)
 
+<span id="app-faq"></span>
 ## 常见问题（逐应用）
 - [Spotify](./app-faq/spotify/)
 - [Apple Music](./app-faq/apple-music/)
