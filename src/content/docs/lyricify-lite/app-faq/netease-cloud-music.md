@@ -10,6 +10,18 @@ title: 网易云音乐
 ### 解决方案
 安装由 apoint123 重构的 [InfLink 插件](https://github.com/apoint123/inflink-rs/)即可。  
 
+:::caution[注意]
+InfLink 插件有两个版本，InfLink 和 InfLink-rs，请只安装 InfLink-rs，如果同时安装 InfLink 和 InfLink-rs，则可能导致其他异常。
+:::
+
+## 调整进度后时间轴不同步
+
+### 导致原因
+网易云自带的 SMTC 不提供时间轴，需要安装额外的插件以增强使用体验。
+
+### 解决方案
+安装由 apoint123 重构的 [InfLink 插件](https://github.com/apoint123/inflink-rs/)即可。  
+
 ## 使用网易云音乐时时间轴异常
 在使用网易云音乐时，Lyricify Lite 歌词卡在曲目信息或第一句歌词，无法正常显示。
 
