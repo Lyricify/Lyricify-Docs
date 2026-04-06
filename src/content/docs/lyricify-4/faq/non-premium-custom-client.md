@@ -50,4 +50,4 @@ title: 非 Spotify Premium 用户启动 Lyricify 4 时报错
 如果你的朋友订阅了 Spotify Premium，也可以使用对方账户下创建的 Client。一个 Client 最多可供 5 位用户使用。
 
 你需要让对方在 Spotify Developer Dashboard 中将你的 Spotify 账户添加到允许名单，然后在自己的 Lyricify 中填入对方提供的 Client 信息。
-具体操作步骤可参见 [自定义 Spotify API Client 配置教程中的“借用朋友的 Client 信息”](../custom-api-client/#借用朋友的-client-信息)。
+具体操作步骤可参见 [自定义 Spotify API Client 配置教程](../../custom-api-client/#借用朋友的-client-信息) 中的 “借用朋友的 Client 信息” 部分。
