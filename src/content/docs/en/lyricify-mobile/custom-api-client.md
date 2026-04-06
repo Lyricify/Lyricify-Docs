@@ -12,8 +12,9 @@ For any questions or feedback, please join the [Telegram group](https://t.me/lyr
 Spotify API won't affect you by returning 429 Error anymore.
 
 ## Requirements
-The currently usable Custom API Client still requires Spotify Premium.  
-If you do not have Spotify Premium yourself, but can borrow a usable Client created by a friend, you may also configure Lyricify in that way.  
+Using a Custom API Client requires Spotify Premium.  
+Users who previously completed the configuration will also be required to have Spotify Premium starting March 9, 2026. Otherwise, the Custom API Client will no longer function.  
+If you do not have Spotify Premium yourself, but can borrow a Client created by a friend, you may also configure Lyricify in that way.  
 See [Borrowing a Friend's Client Information](#borrowing-a-friends-client-information) below for details.
 
 ## Preparations
@@ -47,7 +48,7 @@ The steps above apply when you create and configure your own Client.
 If you do not have Spotify Premium yourself, but can borrow a usable Client created by a friend, you may use the alternative method below.
 
 ## Borrowing a Friend's Client Information
-If you do not have Spotify Premium yourself, but your friend does, you may use a Client created under your friend's account.  
+If you do not have Spotify Premium yourself, but your friend has Spotify Premium, you may use a Client created under your friend's account.  
 Under Spotify's current rules, one Client can be used by up to five users.
 
 ### Actions to be completed by your friend
@@ -86,7 +87,7 @@ with:
 http://127.0.0.1:766/callback
 ```
 
-Open Spotify Developer Dashboard, go to the corresponding Client settings page, and add `http://127.0.0.1:766/callback` under the **Redirect URIs** section. Once updated, your custom API Client should work properly during authorization.
+Open Spotify Developer Dashboard, go to the settings page of the corresponding Client, and add `http://127.0.0.1:766/callback` under the **Redirect URIs** section. Once updated, your custom API Client should work properly during authorization.
 
 :::note[Note]
 `127.0.0.1` is the IP address equivalent of `localhost`. Under Spotify's current validation rules, `127.0.0.1` is accepted, while `localhost` is not.

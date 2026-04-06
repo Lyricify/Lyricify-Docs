@@ -11,8 +11,9 @@ title: 自定义 Spotify API Client 配置教程
 不再会因 Spotify API 返回 429 错误而影响 Lyricify 使用体验。
 
 ## 要求
-目前可用的自定义 API Client 仍需拥有 Spotify Premium 订阅。  
-如果你自己没有 Spotify Premium 订阅，但可以借用朋友创建的可用 Client，也可以按该方式进行配置。  
+使用自定义 API Client 需要拥有 Spotify Premium 订阅。  
+此前已完成配置的用户，自 2026 年 3 月 9 日起，也必须拥有 Spotify Premium 订阅，否则将无法继续使用自定义 API Client。  
+如果你自己没有 Spotify Premium 订阅，但可以借用朋友创建的 Client，也可以按该方式进行配置。  
 具体操作可参见后文的 [借用朋友的 Client 信息](#借用朋友的-client-信息)。
 
 ## 准备步骤
