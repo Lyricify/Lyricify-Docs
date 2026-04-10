@@ -11,6 +11,12 @@ For any questions or feedback, please join the [Telegram group](https://t.me/lyr
 ## Benefits from customising Spotify API Client
 Spotify API won't affect you by returning 429 Error anymore.
 
+## Requirements
+Using a Custom API Client requires Spotify Premium.  
+Users who previously completed the configuration will also be required to have Spotify Premium starting March 9, 2026. Otherwise, the Custom API Client will no longer function.  
+If you do not have Spotify Premium yourself, but can borrow a Client created by a friend, you may also configure Lyricify in that way.  
+See [Borrowing a Friend's Client Information](#borrowing-a-friends-client-information) below for details.
+
 ## Preparations
 If you have already completed the preparation steps, you can directly use the previously obtained `Client ID` and `Client Secret` in `Works on Lyricify Mobile` part.
 1. Login to [Spotify](https://www.spotify.com/) in your browser, if you have already logged in, go to step 2.
@@ -38,6 +44,29 @@ If you have already completed the preparation steps, you can directly use the pr
 2. Enter `Client ID` and `Client Secret` you previously obtained in welcome page's `Custom API Client` part.
 3. Click Login (Get Token), finish the login and authorization, and you are good to go.
 
+The steps above apply when you create and configure your own Client.  
+If you do not have Spotify Premium yourself, but can borrow a usable Client created by a friend, you may use the alternative method below.
+
+## Borrowing a Friend's Client Information
+If you do not have Spotify Premium yourself, but your friend has Spotify Premium, you may use a Client created under your friend's account.  
+Under Spotify's current rules, one Client can be used by up to five users.
+
+### Actions to be completed by your friend
+1. Your friend first creates the Client by following the preparation steps above.
+2. Your friend opens Spotify Developer Dashboard, enters the corresponding Client, and opens the `User Management` page.
+3. Your friend fills in your Spotify account information in `Full Name` and `Email`, then clicks `Add user`.
+![](pic/Demo-Pic06.png)
+4. After that, your friend sends you the `Client ID` and `Client Secret`.
+
+### Actions to be completed by you
+1. In Lyricify Mobile, open the `Custom API Client` section by following the steps above.
+2. Enter the `Client ID` and `Client Secret` provided by your friend.
+3. Complete the login and authorization process.
+
+:::note[Note]
+If five users have already been added to that app, your friend must first remove one unused user before a new user can be added.
+:::
+
 # Common Issues
 
 ## Error during authorization: INVALID_CLIENT: Invalid redirect URI
@@ -58,7 +87,7 @@ with:
 http://127.0.0.1:766/callback
 ```
 
-Go to your app’s settings page, and add `http://127.0.0.1:766/callback` under the **Redirect URIs** section. Once updated, your custom API Client should work properly during authorization.
+Open Spotify Developer Dashboard, go to the settings page of the corresponding Client, and add `http://127.0.0.1:766/callback` under the **Redirect URIs** section. Once updated, your custom API Client should work properly during authorization.
 
 :::note[Note]
 `127.0.0.1` is the IP address equivalent of `localhost`. Under Spotify's current validation rules, `127.0.0.1` is accepted, while `localhost` is not.

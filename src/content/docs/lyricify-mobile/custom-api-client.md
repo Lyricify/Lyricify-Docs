@@ -10,6 +10,12 @@ title: 自定义 Spotify API Client 配置教程
 ## 自定义 Spotify API Client 的好处
 不再会因 Spotify API 返回 429 错误而影响 Lyricify 使用体验。
 
+## 要求
+使用自定义 API Client 需要拥有 Spotify Premium 订阅。  
+此前已完成配置的用户，自 2026 年 3 月 9 日起，也必须拥有 Spotify Premium 订阅，否则将无法继续使用自定义 API Client。  
+如果你自己没有 Spotify Premium 订阅，但可以借用朋友创建的 Client，也可以按该方式进行配置。  
+具体操作可参见后文的 [借用朋友的 Client 信息](#借用朋友的-client-信息)。
+
 ## 准备步骤
 如果你已经完成过准备步骤，则可以直接使用之前获得的 `Client ID` 和 `Client Secret`，在 `Lyricify Mobile 上的工作` 中使用。
 1. 在浏览器中登录 [Spotify](https://www.spotify.com/)，如果你已登录，可进入步骤 2。
@@ -37,6 +43,29 @@ title: 自定义 Spotify API Client 配置教程
 2. 在欢迎界面 `自定义 API Client` 区域对应处输入准备步骤中获取到的 `Client ID` 和 `Client Secret`。
 3. 点击 `登录 (获取 Token)`，重新完成登录和授权即可。
 
+以上流程适用于自行创建 Client 的情况。  
+如果你本人没有 Spotify Premium 订阅，但可以借用朋友创建的可用 Client，也可以参考下文的替代方案。
+
+## 借用朋友的 Client 信息
+如果你本人没有 Spotify Premium 订阅，但朋友拥有 Spotify Premium 订阅，也可以使用对方账户下创建的 Client。  
+根据 Spotify 当前的限制，一个 Client 最多可供 5 位用户使用。
+
+### 由对方完成的操作
+1. 对方先按本文前述步骤创建好 Client。
+2. 对方打开 Spotify Developer Dashboard，进入对应的 Client，并打开 `User Management` 页面。
+3. 对方在 `Full Name` 和 `Email` 中填写你的 Spotify 账户信息，然后点击 `Add user`。
+![](pic/Demo-Pic06.png)
+4. 添加完成后，对方向你提供该 Client 的 `Client ID` 和 `Client Secret`。
+
+### 由你完成的操作
+1. 在 Lyricify Mobile 中按前文步骤进入 `自定义 API Client` 区域。
+2. 填入对方提供的 `Client ID` 和 `Client Secret`。
+3. 继续完成登录授权。
+
+:::note[补充说明]
+如果对方的应用已经添加了 5 位用户，则需要先移除一位不再使用的用户，之后才能继续添加新的用户。
+:::
+
 # 常见问题
 
 ## 授权时提示 INVALID_CLIENT: Invalid redirect URI
@@ -57,7 +86,7 @@ http://localhost:766/callback
 http://127.0.0.1:766/callback
 ```
 
-请进入对应应用的设置页面，并在 `Redirect URI` 中添加 `http://127.0.0.1:766/callback`。完成后即可正常使用自定义 API Client 进行授权。  
+请打开 Spotify Developer Dashboard，进入对应的 Client 设置页面，并在 `Redirect URI` 中添加 `http://127.0.0.1:766/callback`。完成后即可正常使用自定义 API Client 进行授权。  
 
 :::note[注意]
 `127.0.0.1` 是 `localhost` 的等效 IP 地址，在当前 Spotify 的校验机制中被视为有效地址，而 `localhost` 会被拒绝。
