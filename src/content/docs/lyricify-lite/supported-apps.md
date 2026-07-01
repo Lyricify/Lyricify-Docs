@@ -19,6 +19,7 @@ description: Lyricify Lite 支持的 App 列表。
 | 酷狗音乐 | 无时间轴信息 | 较好 |  |
 | 汽水音乐 | 完美 | 较好 |  |
 | FocalSonic | 完美 | 较好 | 可实现完美匹配 |
+| iTunes | 较好 | 较好 | 需安装额外的[软件](https://apps.microsoft.com/detail/9nq3d21qt8ml) |
 | Media Player | 时间轴完美；曲目信息取决于具体曲目 | 一般，取决于具体文件 | 原 Groove Music |
 | Foobar 2000 | 无时间轴信息；曲目信息取决于具体曲目 | 一般，取决于具体文件 | 时间轴可由[插件](https://github.com/ungive/foo_mediacontrol)提供 |
 | PotPlayer | 时间轴完美；曲目信息取决于具体文件名 | 较差，取决于文件名 |  |

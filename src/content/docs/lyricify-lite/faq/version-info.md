@@ -15,11 +15,8 @@ description: Lyricify Lite 不同安装版本说明。
 ### Microsoft Store 独享功能
 为了提升用户体验，促进开发良性循环，部分功能是作为 Microsoft Store 独享功能开发的。  
 目前 Microsoft Store 版本有以下独享功能：
-1. 灵动词岛的自定义字体功能。
-2. 桌面歌词的自定义字体功能。
-3. 任务栏歌词的自定义字体功能。
-4. Apple Music 时间轴稳定器。
-5. 其他歌词界面的自定义字体功能。
+1. 灵动词岛、桌面歌词、任务栏歌词等所有歌词界面的自定义字体功能。
+2. Apple Music 时间轴稳定器。
   
 在 Microsoft Store 购买 Lyricify 是对 Lyricify 开发者的一种支持和信任，感谢所有购买或打赏过 Lyricify 的用户！也欢迎各位用户给出 5 星好评和评语，这对我有很大帮助！  
 
