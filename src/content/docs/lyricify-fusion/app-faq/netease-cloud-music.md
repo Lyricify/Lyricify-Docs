@@ -23,10 +23,10 @@ InfLink 插件有两个版本，InfLink 和 InfLink-rs，请只安装 InfLink-rs
 安装由 apoint123 重构的 [InfLink-rs 插件](https://github.com/apoint123/inflink-rs/)即可。  
 
 ## 使用网易云音乐时时间轴异常
-在使用网易云音乐时，Lyricify Lite 歌词卡在曲目信息或第一句歌词，无法正常显示。
+在使用网易云音乐时，Lyricify Fusion 歌词卡在曲目信息或第一句歌词，无法正常显示。
 
 ### 导致原因
-InfinityLink 插件异常的传递了时间轴信息，导致 Lyricify Lite 获取到的 SMTC 信息错误，故产生异常行为。
+InfinityLink 插件异常的传递了时间轴信息，导致 Lyricify Fusion 获取到的 SMTC 信息错误，故产生异常行为。
 
 ### 解决方案（新）
 安装由 apoint123 重构的 [InfLink-rs 插件](https://github.com/apoint123/inflink-rs/)。

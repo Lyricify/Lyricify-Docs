@@ -2,9 +2,45 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+const legacyGuidePages = [
+	'',
+	'getting-started',
+	'supported-apps',
+	'terms',
+	'faq/version-info',
+	'faq/cannot-detect-player',
+	'faq/smtc-unavailable',
+	'faq/apple-music-performance',
+	'faq/store-shortcut',
+	'faq/desktop-lyrics-disappear',
+	'faq/desktop-lyrics-font-size',
+	'faq/obs-capture',
+	'faq/custom-fonts',
+	'faq/auto-update',
+	'faq/config-migration',
+	'app-faq/spotify',
+	'app-faq/apple-music',
+	'app-faq/qq-music',
+	'app-faq/netease-cloud-music',
+	'app-faq/kugou-music',
+	'app-faq/potplayer',
+];
+const legacyGuideRedirects = Object.fromEntries(
+	['', '/en', '/zh-hant'].flatMap((locale) =>
+		legacyGuidePages.map((page) => {
+			const suffix = page ? `/${page}` : '';
+			return [
+				`${locale}/lyricify-lite${suffix}`,
+				`${locale}/lyricify-fusion${suffix}/`,
+			];
+		}),
+	),
+);
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://docs.lyricify.app',
+	redirects: legacyGuideRedirects,
 	integrations: [
 		starlight({
 			title: {
@@ -152,7 +188,7 @@ export default defineConfig({
 					],
 				},
 				{
-					label: 'Lyricify Lite',
+					label: 'Lyricify Fusion',
 					items: [
 						{
 							label: '总览',
@@ -160,10 +196,11 @@ export default defineConfig({
 								'zh-hant': '總覽',
 								en: 'Overview',
 							},
-							slug: 'lyricify-lite',
+							slug: 'lyricify-fusion',
 						},
-						'lyricify-lite/getting-started',
-						'lyricify-lite/supported-apps',
+						'lyricify-fusion/rename',
+						'lyricify-fusion/getting-started',
+						'lyricify-fusion/supported-apps',
 						{
 							label: '常见问题',
 							translations: {
@@ -171,17 +208,17 @@ export default defineConfig({
 								en: 'FAQ',
 							},
 							items: [
-								'lyricify-lite/faq/version-info',
-								'lyricify-lite/faq/cannot-detect-player',
-								'lyricify-lite/faq/smtc-unavailable',
-								'lyricify-lite/faq/apple-music-performance',
-								'lyricify-lite/faq/store-shortcut',
-								'lyricify-lite/faq/desktop-lyrics-disappear',
-								'lyricify-lite/faq/desktop-lyrics-font-size',
-								'lyricify-lite/faq/obs-capture',
-								'lyricify-lite/faq/custom-fonts',
-								'lyricify-lite/faq/auto-update',
-								'lyricify-lite/faq/config-migration',
+								'lyricify-fusion/faq/version-info',
+								'lyricify-fusion/faq/cannot-detect-player',
+								'lyricify-fusion/faq/smtc-unavailable',
+								'lyricify-fusion/faq/apple-music-performance',
+								'lyricify-fusion/faq/store-shortcut',
+								'lyricify-fusion/faq/desktop-lyrics-disappear',
+								'lyricify-fusion/faq/desktop-lyrics-font-size',
+								'lyricify-fusion/faq/obs-capture',
+								'lyricify-fusion/faq/custom-fonts',
+								'lyricify-fusion/faq/auto-update',
+								'lyricify-fusion/faq/config-migration',
 							],
 						},
 						{
@@ -191,15 +228,15 @@ export default defineConfig({
 								en: 'FAQ (by App)',
 							},
 							items: [
-								'lyricify-lite/app-faq/spotify',
-								'lyricify-lite/app-faq/apple-music',
-								'lyricify-lite/app-faq/qq-music',
-								'lyricify-lite/app-faq/netease-cloud-music',
-								'lyricify-lite/app-faq/kugou-music',
-								'lyricify-lite/app-faq/potplayer',
+								'lyricify-fusion/app-faq/spotify',
+								'lyricify-fusion/app-faq/apple-music',
+								'lyricify-fusion/app-faq/qq-music',
+								'lyricify-fusion/app-faq/netease-cloud-music',
+								'lyricify-fusion/app-faq/kugou-music',
+								'lyricify-fusion/app-faq/potplayer',
 							],
 						},
-						'lyricify-lite/terms',
+						'lyricify-fusion/terms',
 					],
 				},
 				{

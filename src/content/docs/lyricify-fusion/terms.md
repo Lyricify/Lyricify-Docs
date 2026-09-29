@@ -1,6 +1,6 @@
 ---
 title: Lyricify 名词
-description: Lyricify Lite 名词说明。
+description: Lyricify Fusion 名词说明。
 ---
 
 请规范使用 Lyricify 正确的名称或专有名词来描述反馈、提问。自行造词会带来很多麻烦和困惑。  
@@ -21,4 +21,4 @@ description: Lyricify Lite 名词说明。
 | - | - |
 | 歌词 | 歌词，“字幕”是不被 Lyricify 认同的说法 |
 | Lyricify | Lyricify 的名称是 “Lyricify”，“ly”“Ly”“Lyr”“Liricify”“Lyricfy” 等是不被 Lyricify 认同的说法 |
-| Lyricify Lite | Lyricify Lite 的名称是 “Lyricify Lite”，“ly lite” 等是不被 Lyricify 认同的说法 |
+| Lyricify Fusion | 原名 Lyricify Lite，自 1.3.0 版本起使用 “Lyricify Fusion” 这一名称；“ly lite” 等不是官方名称 |

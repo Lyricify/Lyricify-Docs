@@ -9,10 +9,10 @@ title: QQ 音乐
 
 ### 解决方案
 安装 [QQMusic-ID-Injector 插件](https://github.com/apoint123/QQMusic-ID-Injector)。  
-安装完成后，重启 QQ 音乐和 Lyricify Lite 即可。
+安装完成后，重启 QQ 音乐和 Lyricify Fusion 即可。
 
 ## 使用 QQ 音乐时没有时间轴
-在使用 QQ 音乐时，手动修改播放进度后，Lyricify Lite 无法更新播放进度，歌词发生前后错位。
+在使用 QQ 音乐时，手动修改播放进度后，Lyricify Fusion 无法更新播放进度，歌词发生前后错位。
 
 ### 导致原因
 没有更新至支持 SMTC 时间轴的 QQ 音乐版本。

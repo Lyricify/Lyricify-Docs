@@ -7,7 +7,7 @@ title: Apple Music
 
 ### 导致原因
 Apple Music 提供的时间轴精度很低，且上报不稳定。  
-这个问题自 Apple Music Windows 发布以来就已存在，Lyricify Lite 已尽力优化。
+这个问题自 Apple Music Windows 发布以来就已存在，Lyricify Fusion 已尽力优化。
 
 ### 解决方案（新）
 你可以尝试使用 Lyricify 智能引擎提供的全新方案：Apple Music 时间轴稳定器。  
