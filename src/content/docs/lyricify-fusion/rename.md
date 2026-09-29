@@ -7,7 +7,7 @@ Lyricify Lite 自 **1.3.0** 版本起更名为 **Lyricify Fusion**。这是同�
 
 ## 为什么更名
 
-Lyricify Lite 发布后，陆续加入 Apple Music 歌词界面等功能，以及桌面歌词、任务栏歌词和多种全屏歌词界面。“Lite”已经难以准确体现它现在的产品定位，也容易让人误以为它是 Lyricify 4 的精简版。
+Lyricify Lite 发布后，陆续加入桌面歌词、任务栏歌词、Apple Music 歌词、Lyricify 歌词舞台及曲目与歌词管理等功能。“Lite”已经难以准确体现它现在的产品定位，也容易让人误以为它是 Lyricify 4 的精简版。
 
 Lyricify 4 与 Lyricify Fusion 是面向不同使用场景、平行定位的产品。因此，我们使用 **Lyricify Fusion** 这一新名称。
 
