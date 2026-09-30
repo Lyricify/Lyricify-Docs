@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="482" viewBox="0 0 360 482" role="img" aria-labelledby="title desc">
+  <title id="title">曲目与歌词管理操作步骤示意</title>
+  <desc id="desc">操作顺序：在左侧曲目列表选歌曲，在中间歌词源列表选版本，然后在右侧预览并设置使用方式。此图将三个区域纵向排列，便于手机阅读。</desc>
+  <rect width="360" height="482" rx="12" fill="#f3f7f5"/>
+  <g font-family="'Segoe UI','Microsoft YaHei',sans-serif" fill="#173d2b">
+    <text x="20" y="34" font-size="18" font-weight="700">全部曲目 · 操作区域示意</text>
+    <text x="20" y="60" font-size="14" fill="#52665b">按操作顺序排列，软件中为左右分栏</text>
+    <g fill="#ffffff" stroke="#cadbd1">
+      <rect x="16" y="80" width="328" height="96" rx="8"/>
+      <rect x="16" y="208" width="328" height="96" rx="8"/>
+      <rect x="16" y="336" width="328" height="126" rx="8"/>
+    </g>
+    <g fill="#087b3c">
+      <circle cx="42" cy="108" r="13"/><circle cx="42" cy="236" r="13"/><circle cx="42" cy="364" r="13"/>
+    </g>
+    <g fill="#ffffff" font-size="14" text-anchor="middle" font-weight="700">
+      <text x="42" y="113">1</text><text x="42" y="241">2</text><text x="42" y="369">3</text>
+    </g>
+    <g font-size="17" font-weight="700">
+      <text x="66" y="114">曲目：选择曲目</text>
+      <text x="66" y="242">歌词源：选择版本</text>
+      <text x="66" y="370">详情与预览：设置使用方式</text>
+    </g>
+    <g font-size="15" fill="#52665b">
+      <text x="30" y="142">搜索、筛选已保存的歌曲</text>
+      <text x="30" y="164">“当前播放”显示正在播放的曲目</text>
+      <text x="30" y="270">选择在线词源或本地歌词</text>
+      <text x="30" y="292">通过“添加歌词”添加其他版本</text>
+      <text x="30" y="398">核对歌曲信息、歌词与翻译</text>
+      <text x="30" y="447">预览和保存不会固定版本</text>
+    </g>
+    <g fill="#087b3c" font-size="16" text-anchor="middle">
+      <text x="180" y="199">↓</text><text x="180" y="327">↓</text>
+    </g>
+    <text x="30" y="423" font-size="15" fill="#087b3c" font-weight="700">固定使用 · 更换版本 · 更多 ···</text>
+  </g>
+</svg>

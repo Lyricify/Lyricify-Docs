@@ -4,11 +4,9 @@ title: Lyricify Fusion 使用指南
 
 Lyricify Fusion 适用于已接入 SMTC 的播放器和媒体应用，提供灵动词岛、桌面歌词、任务栏歌词、Apple Music 歌词、Lyricify 歌词舞台等视图，以及曲目与歌词管理。你可以先阅读快速开始，再查看 App 支持列表和对应的常见问题。
 
-## 更名说明
-- [Lyricify Fusion 更名说明](./rename/)
-
 ## 开始使用
 - [快速开始](./getting-started/)
+- [曲目与歌词管理](./track-and-lyrics-management/)
 - [App 支持列表](./supported-apps/)
 
 ## 常见问题

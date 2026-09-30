@@ -198,9 +198,10 @@ export default defineConfig({
 							},
 							slug: 'lyricify-fusion',
 						},
-						'lyricify-fusion/rename',
 						'lyricify-fusion/getting-started',
 						'lyricify-fusion/supported-apps',
+						'lyricify-fusion/track-and-lyrics-management',
+						'lyricify-fusion/rename',
 						{
 							label: '常见问题',
 							translations: {

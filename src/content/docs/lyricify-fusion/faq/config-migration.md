@@ -35,4 +35,7 @@ title: 配置文件迁移
 如果你想在迁移配置文件的同时，丢弃日志文件及缓存文件，则可以仅复制以下文件或文件夹：  
 ```
 Settings.json   // 设置文件
+LyricsCatalog.db   // 曲目与歌词管理数据（已保存的歌词、使用偏好及偏移）
 ```
+
+如果需要保留[曲目与歌词管理](../../track-and-lyrics-management/)中的数据，请一并复制 `LyricsCatalog.db`，仅复制 `Settings.json` 不会迁移歌词库。复制前请退出源设备和目标设备上的 Lyricify Fusion，再将文件放入目标配置目录。
