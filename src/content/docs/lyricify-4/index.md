@@ -2,7 +2,7 @@
 title: Lyricify 4 使用指南
 ---
 
-Lyricify 4 是专为 Spotify 打造的，运行于 Windows 平台的歌词软件。首次使用建议先阅读基础功能与进阶功能页面，遇到问题再从常见问题中查找对应条目。
+Lyricify 4 是专为 Spotify 打造的，运行于 Windows 平台的歌词软件。首次使用建议先阅读[快速开始](./getting-started/)，遇到问题可查阅常见问题中的对应条目。
 
 ## 开始使用
 - [快速开始](./getting-started/)
@@ -19,6 +19,7 @@ Lyricify 4 是专为 Spotify 打造的，运行于 Windows 平台的歌词软件
 ## 常见问题
 - [Microsoft Store 版本与 GitHub 版本的区别](./faq/version-info/)
 - [启动时提示错误](./faq/startup-error/)
+- [登录 Spotify 时出现 SSL 连接错误](./faq/spotify-ssl-error/)
 - [Lyricify 不显示歌词](./faq/no-playback-info/)
 - [切歌后反应迟钝](./faq/song-switch-lag/)
 - [429 错误](./faq/error-429/)

@@ -2,20 +2,26 @@
 title: 启动 Lyricify 时提示错误
 ---
 
-启动 Lyricify 时提示出错（超时错误或 Http 错误），并自动关闭。
+启动 Lyricify 时提示超时或 HTTP 错误，并自动关闭。
 
 ### 导致原因
-网络连接状态不好，导致无法连接到 Spotify 服务器。与 Lyricify 无关。 
+
+网络、代理、系统时间或证书校验等问题都可能导致连接 Spotify 服务器失败。与 Lyricify 无关。
+
 ### 解决方案
-更换网络环境，如果你在使用代理，可尝试更换节点或服务提供商。  
-请确保在你的网络下，这两个 Spotify 域名可以 Ping 连通：  
-```
+
+如果提示 `The SSL connection could not be established, see inner exception.` 或 `SSL 连接无法被建立。`，可参考[登录 Spotify 时出现 SSL 连接错误](../spotify-ssl-error/)中的排查步骤。
+
+尝试更换网络，或切换代理节点后重试。使用代理时，请在代理工具中检查以下两个域名的分流规则和连接记录：
+
+```text
 accounts.spotify.com
 api.spotify.com
 ```
-如果可以连通，但仍然无法启动 Lyricify，请继续更换你的网络连接或服务提供商，直到可以连通为止。  
+
 如果你在中国大陆地区，且没有使用代理，则可以尝试开启代理后再试。  
-Lyricify 可以保证的是，Lyricify 本身没有问题，本问题为用户侧网络问题。
+
+Lyricify 可以保证的是，Lyricify 本身没有问题，本问题为用户侧网络或系统环境问题。
 
 :::caution[注意]
 对于以下报错内容：

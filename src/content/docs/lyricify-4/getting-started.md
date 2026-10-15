@@ -49,6 +49,8 @@ Spotify 授权成功。你现在可以关闭这个标签页并回到 Lyricify。
 此时回到 Lyricify 的欢迎界面，应该出现 `成功连接 Spotify` 的提示。如果出现 `Spotify 授权完成，请再等待几秒`，则说明 Spotify 授权已经完成，正在进行 Lyricify 服务器注册，等待几秒即可。  
 最后，点击 `继续` 按钮即可开启全新 Lyricify 体验。
 
+登录时遇到问题，可参考[授权成功后无反应或手动授权失败](../faq/auth-no-response/)；如果提示 SSL 连接错误，可参考[登录 Spotify 时出现 SSL 连接错误](../faq/spotify-ssl-error/)。
+
 ## 主界面与播放
 
 如果你正在任何登录了该 Spotify 账号的设备上播放音乐，不出意外的话该曲目的歌词会显示在 Lyricify 的 `歌词` 界面。  
