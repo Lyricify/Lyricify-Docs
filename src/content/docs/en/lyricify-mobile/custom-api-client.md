@@ -3,8 +3,7 @@ title: Custom Spotify API Client Configuration Tutorial
 ---
 
 :::caution[Note]
-Clients created after February 11, 2026 will cause Lyricify Mobile to malfunction and become unusable.
-Please temporarily do not use newly created custom API Clients and wait for further updates.  
+Clients created after February 11, 2026 require Lyricify Mobile v1.6.0 or later.  
 For any questions or feedback, please join the [Telegram group](https://t.me/lyricify).
 :::
 

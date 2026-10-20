@@ -2,7 +2,9 @@
 title: Lyricify Mobile 使用指南
 ---
 
-Lyricify Mobile 适用于 Android、iPhone、iPad 和 Mac，也提供测试性质的 Windows 版本。首次使用建议先查看安装与使用，再根据具体设备阅读对应页面。
+Lyricify Mobile 适用于 Android、iPhone、iPad 和 Mac。首次使用建议先查看安装与登录，再根据具体设备阅读对应页面。
+
+Lyricify Mobile 自 1.6.0 起不再支持 Windows。Windows 用户可以使用 [Lyricify 4](../lyricify-4/) 或 [Lyricify Fusion](../lyricify-fusion/)。
 
 ## 开始使用
 - [安装与登录](./installation/)

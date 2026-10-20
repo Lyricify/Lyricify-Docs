@@ -3,7 +3,7 @@ title: 自定义 Spotify API Client 配置教程
 ---
 
 :::caution[注意]
-2026 年 2 月 11 日之后创建的 Client，会导致 Lyricify Mobile 异常，无法正常使用，请暂时不要使用新创建的自定义 API Client，并等待后续更新适配。如果着急使用可加入 [内测群](https://lyricify.app/zh-cn/community/) 提前测试和反馈。  
+使用 2026 年 2 月 11 日之后创建的 Client，需更新至 Lyricify Mobile 1.6.0 或更高版本。  
 如有任何问题或反馈可加 [QQ 群](https://qm.qq.com/q/F79ZU8ZOJU)或 [Telegram 群组](https://t.me/lyricify)。
 :::
 

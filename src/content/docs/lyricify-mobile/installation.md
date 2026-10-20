@@ -4,7 +4,7 @@ description: Lyricify Mobile 的安装与登录说明。
 ---
 
 # 安装 Lyricify Mobile
-你可以在 Android、iPhone、iPad、Mac、Windows 设备上安装和使用 Lyricify Mobile。
+你可以在 Android、iPhone、iPad 和 Mac 设备上安装和使用 Lyricify Mobile。
 
 ## 在 Android 设备上安装
 下载 `.apk` 安装包，打开后点击安装即可。  
@@ -17,16 +17,12 @@ description: Lyricify Mobile 的安装与登录说明。
 直接下载 `macOS.pkg` 安装即可。（推荐）  
 你也可以下载 `.macOS.zip`，将压缩包中的 Lyricify Mobile for macOS.app 拖入 `应用程序` 文件夹，即可完成安装。  
 
-## 在 Windows 上使用
-Lyricify Mobile for Windows 为测试性质，不建议日常使用，建议使用具有完整功能的 Lyricify 4。  
-Lyricify Mobile for Windows 下载 `.Windows.zip` 后，解压后运行 `Lyricify Mobile.WPF.exe` 即可。
-
 # 使用 Lyricify Mobile
-在正式开始使用 Lyricify Mobile 前，你需要在 Lyricify Mobile 中完成 Spotify 账户的登录授权。  
-对于大部分设备，直接在弹出的登录网页中完成登录即可。对于部分设备，可能需要额外的配置。
+首次启动时，先选择播放来源。使用 Spotify 时，需要完成账户的登录授权；使用 Apple Music 或 Media Session 时，按提示授予对应权限。  
+使用 Spotify 时，大部分设备可直接在弹出的登录网页中完成授权；部分设备可能需要额外配置。
 
 ## 在 Mac 设备上完成登录
-Lyricify Mobile for macOS 仅支持 `内嵌网页登录`，如果你在直接登录的过程中遇到问题，可尝试借助其他平台的设备辅助完成登录。  
+使用 Spotify 播放源时，Lyricify Mobile for macOS 仅支持 `内嵌网页登录`。如果你在直接登录的过程中遇到问题，可尝试借助其他平台的设备辅助完成登录。  
 目前可借助其他平台的设备通过以下方法完成授权。
 
 ### 借助 Windows 设备
@@ -45,9 +41,6 @@ Lyricify Mobile for macOS 仅支持 `内嵌网页登录`，如果你在直接登
 4. 将 iPhone、iPad 或 Android 设备上文本框中的内容一一对应地复制到 Mac 设备上。
 5. 点击 `继续` 按钮，即可完成登录授权。
 
-## 在 Windows 设备上完成登录
-Lyricify Mobile for Windows 不支持网页登录，需要手动输入 Token。类似情况下，可参见[在 Mac 设备上完成登录](#在-mac-设备上完成登录)。
-
 ## 登录中可能遇到的常见问题
 
 ### 无法登录
@@ -60,7 +53,7 @@ Lyricify Mobile for Windows 不支持网页登录，需要手动输入 Token。�
 科学上网。
 
 ### 登录时提示 INVALID_CLIENT: Invalid Redirect URI
-检查你的 Redirect URI 是否正确填写。确保[自定义 Spotify API Client 配置教程](./custom-api-client/)中的两条 Redirect URI 均已正确填写。  
+检查你的 Redirect URI 是否正确填写。确保[自定义 Spotify API Client 配置教程](../custom-api-client/)中的两条 Redirect URI 均已正确填写。  
 请确保你使用的是 1.5.0 或更新版本的 Lyricify Mobile，且使用的是 `跳转浏览器登录`。由于 Spotify 的调整，`内嵌网页登录` 仅在 1.5.1 或更新版本的 Lyricify Mobile 上支持。
 
 ### 无法正常进入歌词界面
