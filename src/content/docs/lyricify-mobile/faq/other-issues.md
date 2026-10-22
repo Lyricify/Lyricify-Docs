@@ -2,47 +2,36 @@
 title: 其它问题
 ---
 
+## 支持哪些音乐应用
+
+Lyricify Mobile 支持以下音乐应用：
+
+- Android：Spotify，以及接入 Media Session 的播放器，如 Apple Music、QQ 音乐、网易云音乐等。
+- iOS 和 iPadOS：Spotify、Apple Music。
+- macOS：Spotify，以及接入 Media Session 的播放器，如 Apple Music、QQ 音乐、网易云音乐等。
+
+请先在应用中选择对应的播放源并完成权限授权，详见[安装与登录](../../installation/)。
+
 ## 没有逐字歌词
-为啥不显示逐字歌词呢？
 
-### 导致原因
-Lyricify Mobile 不支持逐字歌词的显示。也没有加入此功能的计划。
-
-### 解决方案
-自行脑补逐字歌词。或使用 Lyricify 4。
+Lyricify Mobile 1.6.0 及更新版本支持逐字歌词。请先更新应用，再检查当前歌词是否包含逐字时间轴；只有逐行时间轴的歌词无法显示逐字效果。
 
 ## 如何使用其他界面
-我只找到了 Apple Music 界面，没找到其他界面哎。
 
-### 导致原因
-Lyricify Mobile 只有这个界面。
-
-### 解决方案
-在 Windows 设备上使用 Lyricify 4。
+Lyricify Mobile 提供 Apple Music 风格的歌词界面，支持横屏布局和桌面歌词。若需要灵动词岛、任务栏歌词等界面，可在 Windows 设备上使用 Lyricify 4 或 Lyricify Fusion。
 
 ## 如何使用桌面歌词
-Lyricify Mobile 不支持桌面歌词。
 
-### 导致原因
-由于 Lyricify Mobile 是跨平台开发的，需要同时考虑 Android 和 iOS，而 iOS 上无法实现传统桌面歌词效果，故 Android 上也暂时不会添加桌面歌词功能。
+Lyricify Mobile 1.6.0 及更新版本支持桌面歌词，可在设置中开启，并按提示授予所需权限。
 
-### 解决方案
-在 Android 上可使用小窗等功能来近似实现。  
-在 Windows 上可使用 Lyricify 4 获取完整体验。  
-在 iOS、iPadOS、macOS 上暂无解决方案。
+- Android：按提示授予悬浮窗等权限。
+- iOS 和 iPadOS：通过画中画显示，需系统版本为 15.0 或更新版本，且设备支持画中画。
+- macOS：可在设置中开启桌面歌词。
 
 ## 非 Android 设备上没有模糊效果
-在 iOS 等设备及部分 Android 设备上没有模糊效果。
 
-### 导致原因与解决方案
-iOS 的 UIKit 没有提供可指定半径的模糊接口，故无法实现此效果。需等待 Lyricify Mobile 2。  
-Android 旧版本没有提供模糊 API，可升级至 Android 12 或更高版本以实现本效果。
+iOS 和 macOS 的歌词模糊效果需要 Lyricify Mobile 1.6.0 或更新版本，请先更新应用并检查效果设置。Android 的模糊效果需要 Android 12 或更新版本；旧系统仍可能无法显示该效果。
 
 ## 如何在手机上使用 Lyricify 4
-Lyricify 4 好多功能 Lyricify Mobile 都没有啊，啥时候才能有呢。
 
-### 导致原因
-Lyricify Mobile 目标就是显示歌词，现在目标已经达成。
-
-### 解决方案
-在 Windows 设备上使用 Lyricify 4。你可以给你的手机安装 Windows on ARM。
+Lyricify 4 是 Windows 应用。手机和平板请使用 Lyricify Mobile；两者的功能范围有所不同，Mobile 的播放源支持范围可参见[总览](../../#播放源支持范围)。

@@ -4,7 +4,7 @@ description: Lyricify Mobile 的安装与登录说明。
 ---
 
 # 安装 Lyricify Mobile
-你可以在 Android、iPhone、iPad 和 Mac 设备上安装和使用 Lyricify Mobile。
+你可以在 Android、iPhone、iPad 和 Mac 设备上使用 Lyricify Mobile。最低系统要求为 Android 5.0、iOS 12.2、macOS 11.0；iOS 桌面歌词需 iOS 15.0 或更新版本。自 1.6.0 起不再提供 Windows 版本。
 
 ## 在 Android 设备上安装
 下载 `.apk` 安装包，打开后点击安装即可。  
@@ -18,10 +18,17 @@ description: Lyricify Mobile 的安装与登录说明。
 你也可以下载 `.macOS.zip`，将压缩包中的 Lyricify Mobile for macOS.app 拖入 `应用程序` 文件夹，即可完成安装。  
 
 # 使用 Lyricify Mobile
+
+支持的播放源详见[播放源支持范围](../#播放源支持范围)。
+
+- **Spotify：** 各平台均可使用，需要登录 Spotify 账户。
+- **Apple Music：** iOS 和 iPadOS 支持，按应用提示完成授权。
+- **Media Session：** Android 和 macOS 支持，可读取 Apple Music、QQ 音乐、网易云音乐等接入 Media Session 的播放器的播放信息。Android 需按提示开启通知使用权。
+
 首次启动时，先选择播放来源。使用 Spotify 时，需要完成账户的登录授权；使用 Apple Music 或 Media Session 时，按提示授予对应权限。  
 使用 Spotify 时，大部分设备可直接在弹出的登录网页中完成授权；部分设备可能需要额外配置。
 
-## 在 Mac 设备上完成登录
+## 在 Mac 设备上完成 Spotify 登录
 使用 Spotify 播放源时，Lyricify Mobile for macOS 仅支持 `内嵌网页登录`。如果你在直接登录的过程中遇到问题，可尝试借助其他平台的设备辅助完成登录。  
 目前可借助其他平台的设备通过以下方法完成授权。
 
@@ -41,7 +48,7 @@ description: Lyricify Mobile 的安装与登录说明。
 4. 将 iPhone、iPad 或 Android 设备上文本框中的内容一一对应地复制到 Mac 设备上。
 5. 点击 `继续` 按钮，即可完成登录授权。
 
-## 登录中可能遇到的常见问题
+## Spotify 登录中可能遇到的常见问题
 
 ### 无法登录
 红框提示：糟糕！出了点问题。

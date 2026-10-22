@@ -71,7 +71,7 @@ If five users have already been added to that app, your friend must first remove
 ## Error during authorization: INVALID_CLIENT: Invalid redirect URI
 Please check if the `Redirect URI` is entered correctly. Make sure it includes both `lyricify://callback` and `http://127.0.0.1:766/callback`, and **not** `https://127.0.0.1:766/callback`.  
 If you're using an Android or iOS device, be sure to include `lyricify://callback` in the `Redirect URI`.  
-Please ensure you are using Lyricify Mobile version 1.5.0 or later and are using `redirect to browser login`. Due to Spotify's adjustments, `embedded web login` is temporarily unavailable and will be restored in the next update.  
+Please ensure you are using Lyricify Mobile version 1.5.0 or later and are using `redirect to browser login`. Due to Spotify's adjustments, `embedded web login` requires version 1.5.1 or later.
 
 ### Important Note
 If you **created and configured your custom API Client before April 9, 2025**, please make sure to update your app settings in the Spotify Developer Dashboard. Due to recent changes in Spotify's redirect URI validation, **URIs using `localhost` are no longer accepted**. You need to replace the original:

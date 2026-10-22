@@ -6,6 +6,16 @@ Lyricify Mobile 适用于 Android、iPhone、iPad 和 Mac。首次使用建议�
 
 Lyricify Mobile 自 1.6.0 起不再支持 Windows。Windows 用户可以使用 [Lyricify 4](../lyricify-4/) 或 [Lyricify Fusion](../lyricify-fusion/)。
 
+## 播放源支持范围
+
+Lyricify Mobile 支持以下播放源：
+
+| 平台 | 支持的播放源 |
+| --- | --- |
+| Android | Spotify、接入 Media Session 的播放器 |
+| iOS 和 iPadOS | Spotify、Apple Music |
+| macOS | Spotify、接入 Media Session 的播放器 |
+
 ## 开始使用
 - [安装与登录](./installation/)
 - [Apple 设备自签教程](./ios-ipa-guide/)
