@@ -58,6 +58,7 @@ const localeConfigs = [
 			'汽水音乐 => Soda Music',
 			'中国大陆 => Chinese Mainland',
 			'Apple 账户 => Apple Account',
+			'私人听歌房 => Private Session',
 		],
 	}),
 	createLocaleConfig({
